@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+.con-body{
+    margin-top: 60px;
+}
+=======
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 #cssmenu,
 #cssmenu ul,
@@ -424,5 +429,13 @@ body{
     display: none;
   }
 /*like end*/
+.review_quote{
+    border: solid #cde9ea 2px;
+    border-top-color: rgb(205, 233, 234);
+    border-top-style: solid;
+    border-top-width: 2px;
+    padding: 12px;
+    padding-top: 12px;
+}
 
-
+>>>>>>> 8f780406b345c8f9dbb87c553a3770ce250b1df7

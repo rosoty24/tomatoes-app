@@ -1,5 +1,5 @@
 Session.set("WEB-NAME","");
-Template.submit.events({
+Template.addproduct.events({
 	'submit form':function(e){
 		e.preventDefault();
 		var datestr = new Date().toString("yyyy-MM-dd HH:mm:ss");
@@ -7,27 +7,37 @@ Template.submit.events({
 		var author = Meteor.userId();
 		var title = $('#title').val();
 		var url = $('#url').val();
-		//var website = url.split(".com")[0] + ".com";
+		var img = Session.get('ADDIMAGEID');
 		var websites = url.replace(/(http.*?\/\/)(.*?.com|.*?\w+)(\/.*)/ig, "$2");
 		var website= websites.replace('www.','');
 		console.log("My website :"+website);
-		var text = $('#text').val();
+		var description = $('#description').val();
 		var category =$('#category').val();
 		var date = new Date();
 		var obj = {
 			title:title,
 			url:url,
 			website:website,
-			text:text,
+			description:description,
+			img:img,
 			author:author,
 			category:category,
 			date:date
 		}
 		Meteor.call('insertSubmit',obj);
-		Router.go("/managesubmit");
-	}
+		Router.go("/product");
+	},
+	'change #img': function(event, template) {
+        var files = event.target.files;
+        for (var i = 0, ln = files.length; i < ln; i++) {
+          	images.insert(files[i], function (err, fileObj) {
+	            // Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
+            	Session.set('ADDIMAGEID', fileObj._id);
+          	});
+        }
+    }
 });
-Template.updatesubmit.events({
+Template.updateProduct.events({
 	'click #btnUpdate': function(e){
 		e.preventDefault();
 
@@ -37,9 +47,10 @@ Template.updatesubmit.events({
 		var author = Meteor.userId();//Meteor.userId();
 		var title =$('#title').val();
 		var url =$('#url').val();
+		var img = Session.get('ADDIMAGEID');
 		var websites = url.replace(/(http.*?\/\/)(.*?.com|.*?\w+)(\/.*)/ig, "$2");
 		var website= websites.replace('www.','');
-		var text =$('#text').val();//CKEDITOR.instances.editor1.getData();
+		var description =$('#description').val();//CKEDITOR.instances.editor1.getData();
 		var id = this._id;
 		alert("hello"+id);
 		var category =$('#category').val();
@@ -47,7 +58,8 @@ Template.updatesubmit.events({
 				title:title,
 				url:url,
 				website:website,
-				text:text,
+				description:description,
+				img:img,
 				author:author,
 				category:category,
 				date:date
@@ -56,28 +68,36 @@ Template.updatesubmit.events({
 				if(erro){console.log(erro.reason())}
 				else{
 					console.log("SUCESS UPDATE");
-					Router.go("/managesubmit");
+					Router.go("/product");
 				}
 			});
 		}
 });
-Template.updatesubmit.helpers({
+Template.updateProduct.helpers({
 	getCat:function(id){
 		return category.findOne({_id:id}).title;
-		Router.go("/managesubmit");
+		Router.go("/allproduct");
 	},
 	getCategory:function(){
 		return category.find();
-	}
+	},
+	'change #img': function(event, template) {
+        var files = event.target.files;
+        for (var i = 0, ln = files.length; i < ln; i++) {
+          	images.insert(files[i], function (err, fileObj) {
+	            Session.set('ADDIMAGEID', fileObj._id);
+          	});
+        }
+    }
 });
-Template.managesubmit.events({
+Template.product.events({
 'click #remove':function(){
 		var id = this._id;
 		return products.remove({_id:id});
 	}
 });
-Template.managesubmit.helpers({
-	managesubmit:function(){
+Template.product.helpers({
+	getAllProduct:function(){
 		return products.find();
 	},
 	getCategory:function(){
@@ -114,10 +134,21 @@ Template.home.events({
 		Session.set("WEB-NAME",webname);
 	}
 });
-Template.submit.helpers({
+Template.addproduct.helpers({
 	getCategory:function(){
 		return category.find();
-	}
+	},
+	getImage: function(image){
+        //var id = this.imgId;
+        //console.log('MyimageId:' + id);
+        var img = images.findOne({_id:image});
+        if(img){
+            console.log(img.copies.images.key);
+            return img.copies.images.key;
+        }else{
+            return;
+        }
+    }
 });
 Template.header.events({
 	"click #home":function(e){
