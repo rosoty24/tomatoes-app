@@ -15,10 +15,12 @@ Template.addreview.events({
 			date:date
 		}
 		Meteor.call("insertReview",obj);
-		Router.go('/admin/review');
 	}
 });
 Template.addreview.helpers({
+	getAllReview:function(){
+		return review.find();
+	},
 	getProduct:function(){
 		return products.find();
 	}

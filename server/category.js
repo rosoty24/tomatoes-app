@@ -1,8 +1,8 @@
 Meteor.methods({
-	addCat: function(title, parent) {
+	addCat: function(title, image) {
 		var attr={
 			title:title,
-			parent:parent
+			image:image
 		}
 
 		category.insert(attr);

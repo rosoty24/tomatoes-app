@@ -25,7 +25,7 @@ Template.addproduct.events({
 			date:date
 		}
 		Meteor.call('insertSubmit',obj);
-		Router.go("/product");
+		Router.go("/admin/product");
 	},
 	'change #img': function(event, template) {
         var files = event.target.files;
@@ -68,7 +68,7 @@ Template.updateProduct.events({
 				if(erro){console.log(erro.reason())}
 				else{
 					console.log("SUCESS UPDATE");
-					Router.go("/product");
+					Router.go("/admin/product");
 				}
 			});
 		}
@@ -90,13 +90,13 @@ Template.updateProduct.helpers({
         }
     }
 });
-Template.product.events({
+Template.allproduct.events({
 'click #remove':function(){
 		var id = this._id;
 		return products.remove({_id:id});
 	}
 });
-Template.product.helpers({
+Template.allproduct.helpers({
 	getAllProduct:function(){
 		return products.find();
 	},

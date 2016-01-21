@@ -1,4 +1,4 @@
-<template name="product">
+<template name="allproduct">
 	<div class="container con-body">
 		<div class="row">
 			{{> adminmenu}}
@@ -35,7 +35,7 @@
                                     <td class="text-center">
                                         <a href="#" class="btn btn-primary btn-xs">View</a>
                                         <a href="#" id="remove" class="btn btn-danger btn-xs">Delete</a>
-                                        <a  href="product/edit/{{_id}}" class="btn btn-primary btn-xs">Edit</a>
+                                        <a  href="/admin/product/edit/{{_id}}" class="btn btn-primary btn-xs">Edit</a>
                                     </td>
                                 </tr>
                             {{/each}}

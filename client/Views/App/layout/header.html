@@ -30,8 +30,14 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                        <li class=""><a href="/login?returnUrl=%2Faccount">LOGIN</a></li>
-                        <li class=""><a href="/registration">SIGN UP</a></li>
+                	{{#if currentUser}}
+                       	<li class=""><a href="/login?returnUrl=%2Faccount">
+                    		{{currentUser.profile.firstname}} {{currentUser.profile.lastname}}
+                    	</a></li>
+                        <li class=""><a href="#" id="logout">Logout</a></li> 
+                    {{else}}
+                    	<li class=""><a href="/login">LOGIN</a></li>
+                    {{/if}}
                     <li style="margin: 10px;">
                         <div style="display: inline-block; float: left;">
                             <input id="search_input" type="text" style="width: 200px;" placeholder="Search..." />
@@ -44,5 +50,4 @@
             </div>
         </div>
     </div>
-	
 </template>

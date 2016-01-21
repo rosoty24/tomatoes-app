@@ -1,21 +1,19 @@
-Template.addcategory.events({
+Template.categories.events({
 	'submit form': function(e){
 		e.preventDefault();
 		var title = $('#title').val();
-		var parent = $('#parent').val();
-
-		Meteor.call("addCat", title, parent, function(err){
+		var image = "img.jpg";
+		Meteor.call("addCat", title, image, function(err){
 			if(err){
 				console.log(err);
 			}else{
 				alert("success");
-				Router.go("/manageCategory");
+				Router.go("/admin/manageCategory");
 			}
 		});
 	}
 
 });
-
 Template.manageCategory.helpers({
 	manageCat: function(){
 		var result = category.find({});
@@ -55,20 +53,20 @@ Template.updateCategory.helpers({
 });	
 
 Template.updateCategory.events({
-	"submit form": function(e) {
+	"click #btnUpdate": function(e) {
 		e.preventDefault();
-		var id = $("#idRecord").val();
+		var id = this._id;
 		var title = $('#title').val();
-		var parent = $('#parent').val();
+		var image = $('#image').val();
 
 		var attr={
 			title:title,
-			parent:parent
+			image:image
 		
 		}
 
 		Meteor.call('updateCat',id, attr);
-		Router.go('/manageCategory');   
+		Router.go('/admin/manageCategory');   
 	}
 });
 
