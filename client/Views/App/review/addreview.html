@@ -1,0 +1,32 @@
+<template name = "addreview">
+	<div class = "container">
+		<h1>Review</h1>
+		<div class="col-lg-12">
+			<form role="form" class="form-horizontal">
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="product">Products <span style="color:red">*</span></label>
+				<div class="col-sm-9">
+					<select class="form-control" id="products" required>
+						<option value="" style="display:none" >select product</option>
+						{{#each getProduct}}
+							<option value="{{_id}}">{{title}}</option>
+						{{/each}}
+					 </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-sm-3" for="text">Text <span style="color:red">*</span></label>
+				<div class="col-sm-9">
+				<textarea ame="text" id="text" class="form-control input-sm" placeholder="Text" required rows="5"></textarea>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-3 col-sm-2">
+					<input type="submit" style="border-radius:5px;padding:0px; margin:0px;"  value="Add Review" id="btnreview" class="btn btn-info btn-block">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+</template>

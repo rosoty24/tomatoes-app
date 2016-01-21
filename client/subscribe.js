@@ -5,3 +5,4 @@ Meteor.subscribe("images");
 Meteor.subscribe("category");
 Meteor.subscribe("advertise");
 Meteor.subscribe("favorite");
+Meteor.subscribe("review");
