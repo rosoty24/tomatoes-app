@@ -1,0 +1,46 @@
+<template name="header">
+	<div class="container-fluid">
+		<div id='cssmenu'>
+			<ul>
+				<li><a href='#' id="home">Home</a></li>
+			   <li><a href='#'>News</a></li>
+			   <li class='active has-sub'><a href='#'>Technology</a>
+			      <ul>
+			         <li class='has-sub'><a href='#'>Cambodia</a>
+			            <ul>
+			               <li><a href='#'>Sub 1</a></li>
+			               <li><a href='#'>Sub 2</a></li>
+			            </ul>
+			         </li>
+			         <li class='has-sub'><a href='#'>Asks</a>
+			            <ul>
+			               <li><a href='#'>Sub 3</a></li>
+			               <li><a href='#'>Sub 4</a></li>
+			            </ul>
+			         </li>
+			      </ul>
+			   </li>
+			   <li><a href='#'>Comments</a></li>
+			   <li><a href='#'>Question</a></li>
+			   	<div class="box pull-right">
+			  		<div class="container-4">
+			    		<input type="search" id="search" placeholder="Search..." />
+			    		<button class="icon"><i class="fa fa-search"></i></button>
+			  		</div>
+			  		<div>
+			  			{{#if currentUser}}
+					  		<p class="pull-right">
+					  			<a href="#" id="logout">Logout | </a>
+					  			<a href="#" id="profile">{{currentUser.profile.firstname}} {{currentUser.profile.lastname}}</a>
+					  		</p>
+					  	{{else}}
+					  		<p class="pull-right">
+					  			<a href="/login" id="logout">Login</a>
+					  		</p>
+					  	{{/if}}
+			  		</div>
+				</div>
+			</ul>
+		</div>
+	</div>
+</template>

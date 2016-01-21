@@ -1,0 +1,61 @@
+<template name="home">
+	<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12 table-responsive">
+			<table class="table table-responsive">
+				<thead>
+					<tr>
+						<th>
+							#
+						</th>
+						<th>
+							Title
+						</th>
+						<th>
+							Website
+						</th>
+						<th>
+							Text
+						</th>
+						<th>
+							Author
+						</th>
+						<th>
+							Category
+						</th>
+						<th>
+							Timesago
+						</th>
+					</tr>
+				</thead>
+				{{#each getPost}}
+				<tbody>
+					<tr>
+						<td>
+						</td>
+						<td>
+							<a href="{{url}}">{{title}}</a>
+						</td>
+						<td>
+							<a href="#" id="web_{{_id}}" class="web">{{website}}</a>
+						</td>
+						<td>
+							{{text}}
+						</td>
+						<td>
+							<a href="/profileAuthor/{{author}}">{{getAuthorname author}}</a>
+						</td>
+						<td>
+							{{getCategory}}
+						</td>
+						<td>
+							 {{livestamp date}}
+						</td>
+					</tr>
+				</tbody>
+				{{/each}}
+			</table>
+		</div>
+	</div>
+</div>
+</template>
