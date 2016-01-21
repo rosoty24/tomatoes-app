@@ -16,7 +16,6 @@ Template.addproduct.events({
 		var date = new Date();
 		var obj = {
 			title:title,
-			url:url,
 			website:website,
 			description:description,
 			img:img,
@@ -56,7 +55,6 @@ Template.updateProduct.events({
 		var category =$('#category').val();
 			var obj={
 				title:title,
-				url:url,
 				website:website,
 				description:description,
 				img:img,
@@ -71,7 +69,16 @@ Template.updateProduct.events({
 					Router.go("/admin/product");
 				}
 			});
-		}
+		},
+		'change #img': function(event, template) {
+        var files = event.target.files;
+        for (var i = 0, ln = files.length; i < ln; i++) {
+          	images.insert(files[i], function (err, fileObj) {
+	            // Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
+            	Session.set('ADDIMAGEID', fileObj._id);
+          	});
+        }
+    }
 });
 Template.updateProduct.helpers({
 	getCat:function(id){
@@ -103,7 +110,18 @@ Template.allproduct.helpers({
 	getCategory:function(){
 		var id = this.category;
 		return category.findOne({_id:id}).title;
-	}
+	},
+	getImage: function(image){
+        //var id = this.imgId;
+        //console.log('MyimageId:' + id);
+        var img = images.findOne({_id:image});
+        if(img){
+            console.log(img.copies.images.key);
+            return img.copies.images.key;
+        }else{
+            return;
+        }
+    }
 });
 Template.home.helpers({
 	getAuthorname:function(author){
