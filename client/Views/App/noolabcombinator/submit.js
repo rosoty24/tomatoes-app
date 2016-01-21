@@ -73,12 +73,12 @@ Template.updatesubmit.helpers({
 Template.managesubmit.events({
 'click #remove':function(){
 		var id = this._id;
-		return post.remove({_id:id});
+		return products.remove({_id:id});
 	}
 });
 Template.managesubmit.helpers({
 	managesubmit:function(){
-		return post.find();
+		return products.find();
 	},
 	getCategory:function(){
 		var id = this.category;
