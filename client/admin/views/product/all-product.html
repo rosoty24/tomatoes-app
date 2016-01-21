@@ -1,4 +1,4 @@
-<template name="allproduct">
+<template name="product">
 	<div class="container con-body">
 		<div class="row">
 			{{> adminmenu}}
@@ -25,138 +25,20 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            {{#each getAllProduct}}
                                 <tr class="odd gradeX">
                                     <td class="text-center">#</td>
-                                    <td class="text-center">Title</td>
-                                    <td class="text-center">Description</td>
-                                    <td class="text-center">Categories</td>
-                                    <td class="text-center">Type</td>
+                                    <td class="text-center">{{title}}</td>
+                                    <td class="text-center">{{url}}</td>
+                                    <td class="text-center">{{description}}</td>
+                                    <td class="text-center">{{getCategory}}</td>
                                     <td class="text-center">
                                         <a href="#" class="btn btn-primary btn-xs">View</a>
                                         <a href="#" id="remove" class="btn btn-danger btn-xs">Delete</a>
-                                        <a href="#" class="btn btn-primary btn-xs">Edit</a>
+                                        <a  href="product/edit/{{_id}}" class="btn btn-primary btn-xs">Edit</a>
                                     </td>
                                 </tr>
-                                <tr class="odd gradeX">
-                                    <td class="text-center">#</td>
-                                    <td class="text-center">Title</td>
-                                    <td class="text-center">Description</td>
-                                    <td class="text-center">Categories</td>
-                                    <td class="text-center">Type</td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn btn-primary btn-xs">View</a>
-                                        <a href="#" id="remove" class="btn btn-danger btn-xs">Delete</a>
-                                        <a href="#" class="btn btn-primary btn-xs">Edit</a>
-                                    </td>
-                                </tr>
-                                <tr class="odd gradeX">
-                                    <td class="text-center">#</td>
-                                    <td class="text-center">Title</td>
-                                    <td class="text-center">Description</td>
-                                    <td class="text-center">Categories</td>
-                                    <td class="text-center">Type</td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn btn-primary btn-xs">View</a>
-                                        <a href="#" id="remove" class="btn btn-danger btn-xs">Delete</a>
-                                        <a href="#" class="btn btn-primary btn-xs">Edit</a>
-                                    </td>
-                                </tr>
-                                 <tr class="odd gradeX">
-                                    <td class="text-center">#</td>
-                                    <td class="text-center">Title</td>
-                                    <td class="text-center">Description</td>
-                                    <td class="text-center">Categories</td>
-                                    <td class="text-center">Type</td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn btn-primary btn-xs">View</a>
-                                        <a href="#" id="remove" class="btn btn-danger btn-xs">Delete</a>
-                                        <a href="#" class="btn btn-primary btn-xs">Edit</a>
-                                    </td>
-                                </tr>
-                                 <tr class="odd gradeX">
-                                    <td class="text-center">#</td>
-                                    <td class="text-center">Title</td>
-                                    <td class="text-center">Description</td>
-                                    <td class="text-center">Categories</td>
-                                    <td class="text-center">Type</td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn btn-primary btn-xs">View</a>
-                                        <a href="#" id="remove" class="btn btn-danger btn-xs">Delete</a>
-                                        <a href="#" class="btn btn-primary btn-xs">Edit</a>
-                                    </td>
-                                </tr>
-                                 <tr class="odd gradeX">
-                                    <td class="text-center">#</td>
-                                    <td class="text-center">Title</td>
-                                    <td class="text-center">Description</td>
-                                    <td class="text-center">Categories</td>
-                                    <td class="text-center">Type</td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn btn-primary btn-xs">View</a>
-                                        <a href="#" id="remove" class="btn btn-danger btn-xs">Delete</a>
-                                        <a href="#" class="btn btn-primary btn-xs">Edit</a>
-                                    </td>
-                                </tr>
-                                 <tr class="odd gradeX">
-                                    <td class="text-center">#</td>
-                                    <td class="text-center">Title</td>
-                                    <td class="text-center">Description</td>
-                                    <td class="text-center">Categories</td>
-                                    <td class="text-center">Type</td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn btn-primary btn-xs">View</a>
-                                        <a href="#" id="remove" class="btn btn-danger btn-xs">Delete</a>
-                                        <a href="#" class="btn btn-primary btn-xs">Edit</a>
-                                    </td>
-                                </tr>
-                                 <tr class="odd gradeX">
-                                    <td class="text-center">#</td>
-                                    <td class="text-center">Title</td>
-                                    <td class="text-center">Description</td>
-                                    <td class="text-center">Categories</td>
-                                    <td class="text-center">Type</td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn btn-primary btn-xs">View</a>
-                                        <a href="#" id="remove" class="btn btn-danger btn-xs">Delete</a>
-                                        <a href="#" class="btn btn-primary btn-xs">Edit</a>
-                                    </td>
-                                </tr>
-                                 <tr class="odd gradeX">
-                                    <td class="text-center">#</td>
-                                    <td class="text-center">Title</td>
-                                    <td class="text-center">Description</td>
-                                    <td class="text-center">Categories</td>
-                                    <td class="text-center">Type</td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn btn-primary btn-xs">View</a>
-                                        <a href="#" id="remove" class="btn btn-danger btn-xs">Delete</a>
-                                        <a href="#" class="btn btn-primary btn-xs">Edit</a>
-                                    </td>
-                                </tr>
-                                 <tr class="odd gradeX">
-                                    <td class="text-center">#</td>
-                                    <td class="text-center">Title</td>
-                                    <td class="text-center">Description</td>
-                                    <td class="text-center">Categories</td>
-                                    <td class="text-center">Type</td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn btn-primary btn-xs">View</a>
-                                        <a href="#" id="remove" class="btn btn-danger btn-xs">Delete</a>
-                                        <a href="#" class="btn btn-primary btn-xs">Edit</a>
-                                    </td>
-                                </tr>
-                                 <tr class="odd gradeX">
-                                    <td class="text-center">#</td>
-                                    <td class="text-center">Title</td>
-                                    <td class="text-center">Description</td>
-                                    <td class="text-center">Categories</td>
-                                    <td class="text-center">Type</td>
-                                    <td class="text-center">
-                                        <a href="#" class="btn btn-primary btn-xs">View</a>
-                                        <a href="#" id="remove" class="btn btn-danger btn-xs">Delete</a>
-                                        <a href="#" class="btn btn-primary btn-xs">Edit</a>
-                                    </td>
-                                </tr>
+                            {{/each}}
                             </tbody>
                         </table>
                     </div>

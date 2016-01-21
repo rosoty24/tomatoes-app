@@ -11,7 +11,7 @@ Template.addproduct.events({
 		var websites = url.replace(/(http.*?\/\/)(.*?.com|.*?\w+)(\/.*)/ig, "$2");
 		var website= websites.replace('www.','');
 		console.log("My website :"+website);
-		var description = $('#text').val();
+		var description = $('#description').val();
 		var category =$('#category').val();
 		var date = new Date();
 		var obj = {
@@ -47,9 +47,10 @@ Template.updateProduct.events({
 		var author = Meteor.userId();//Meteor.userId();
 		var title =$('#title').val();
 		var url =$('#url').val();
+		var img = Session.get('ADDIMAGEID');
 		var websites = url.replace(/(http.*?\/\/)(.*?.com|.*?\w+)(\/.*)/ig, "$2");
 		var website= websites.replace('www.','');
-		var text =$('#text').val();//CKEDITOR.instances.editor1.getData();
+		var description =$('#description').val();//CKEDITOR.instances.editor1.getData();
 		var id = this._id;
 		alert("hello"+id);
 		var category =$('#category').val();
@@ -57,7 +58,8 @@ Template.updateProduct.events({
 				title:title,
 				url:url,
 				website:website,
-				text:text,
+				description:description,
+				img:img,
 				author:author,
 				category:category,
 				date:date
@@ -78,7 +80,15 @@ Template.updateProduct.helpers({
 	},
 	getCategory:function(){
 		return category.find();
-	}
+	},
+	'change #img': function(event, template) {
+        var files = event.target.files;
+        for (var i = 0, ln = files.length; i < ln; i++) {
+          	images.insert(files[i], function (err, fileObj) {
+	            Session.set('ADDIMAGEID', fileObj._id);
+          	});
+        }
+    }
 });
 Template.product.events({
 'click #remove':function(){
