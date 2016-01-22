@@ -12,11 +12,11 @@
                 </a>
             </div>
             <div id="main_navbar_items" class="navbar-collapse collapse">
-                {{#each getCategory}}
                 <ul class="nav navbar-nav">
-                    <li class=""><a href="/bootstrap-template" title="BootStrap Templates">{{title}}</a></li>  
+                    {{#each getCatename}}
+                        <li class=""><a href="/disProduct/{{_id}}" title="BootStrap Templates">{{title}}</a></li>
+                    {{/each}}  
                 </ul>
-                {{/each}}
                 <ul class="nav navbar-nav navbar-right">
                 	{{#if currentUser}}
                        	<li class=""><a href="/login?returnUrl=%2Faccount">

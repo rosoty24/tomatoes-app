@@ -8,6 +8,7 @@
                             <thead>
                                 <tr style="background:#ddd">
                                     <th id="text-color">#</th>
+                                    <th id="text-color">Images</th>
                                     <th id="text-color">Titile</th>
                                     <th width="25%" id="text-color">Action</th>
                                 </tr>
@@ -16,6 +17,7 @@
                                 {{#each manageCat}}
                                      <tr class="odd gradeX">
                                         <td class="text-center">#</td>
+                                        <td class="text-center"><img src="/uploads/{{getImage image}}" width="80" class="img-responsive"></td>
                                         <td class="text-center">{{title}}</td>
                                         <td class="text-center">
                                             <a href="#" class="btn btn-primary btn-xs">View</a>

@@ -1,4 +1,4 @@
-<template name="homefront">
+<template name="disProduct">
 	<div class="container">
         <hr>
         <div class="row">
@@ -7,21 +7,19 @@
             </div>
         </div>
         <div class="row text-center">
-            {{#each getAllproduct}}
+            {{#each displayPro}}
                 <div class="col-md-3 col-sm-6 hero-feature">
                     <div class="thumbnail">
-                        <a href="/productdetails/{{_id}}">
+                        <a href="/productDetail/{{_id}}">
                         <img src="/uploads/{{getImage img}}" height="100" alt="Place image"></a>
                         <div class="caption">
                             <h3>{{title}}</h3>
-                            <div class="desc-size">
-                                <p>{{description}}</p>
-                            </div>
+                            <p>{{description}}</p>
                             <p>
-                                <p>{{getFavorite}}</p>
+                                <p>{{getFavorite _id}}</p>
                                 <a href="#" id="like_{{_id}}" class="btn btn-primary like">Like</a>
                                 <a href="#" id="unlike_{{_id}}" class="btn btn-primary unlike hidden">Unlike</a> 
-                                <a href="/productdetails/{{_id}}" class="btn btn-default">More View</a>
+                                <a href="#" class="btn btn-default">More Info</a>
                             </p>
                         </div>
                     </div>

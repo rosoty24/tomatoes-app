@@ -1,9 +1,7 @@
-Session.set("WEB-NAME","");
 Template.addproduct.events({
 	'submit form':function(e){
 		e.preventDefault();
 		var datestr = new Date().toString("yyyy-MM-dd HH:mm:ss");
-		//var timestamp = (new Date(datestr.split(".").join("-")).getTime())/1000;
 		var author = Meteor.userId();
 		var title = $('#title').val();
 		var price = $('#price').val();
@@ -20,7 +18,8 @@ Template.addproduct.events({
 			img:img,
 			author:author,
 			category:category,
-			date:date
+			date:date,
+			status:0
 		}
 		Meteor.call('insertSubmit',obj);
 		Router.go("/admin/product");
@@ -38,38 +37,41 @@ Template.addproduct.events({
 Template.updateProduct.events({
 	'click #btnUpdate': function(e){
 		e.preventDefault();
-
-		//var datestr = new Date().toString("yyyy-MM-dd HH:mm:ss");
-		//var timestamp = (new Date(datestr.split(".").join("-")).getTime())/1000;
-		var date = new Date();
-		var author = Meteor.userId();//Meteor.userId();
-		var title =$('#title').val();
-		var url =$('#url').val();
-		var img = Session.get('ADDIMAGEID');
-		var websites = url.replace(/(http.*?\/\/)(.*?.com|.*?\w+)(\/.*)/ig, "$2");
-		var website= websites.replace('www.','');
-		var description =$('#description').val();//CKEDITOR.instances.editor1.getData();
 		var id = this._id;
-		alert("hello"+id);
+		var author = Meteor.userId();
+		var title = $('#title').val();
+		var price = $('#price').val();
+		var stock = $("#stock").val();
+		var img = Session.get('ADDIMAGEID');
+		var currentImage = $("#current").val();
+		var description = $('#description').val();
 		var category =$('#category').val();
-			var obj={
-				title:title,
-				website:website,
-				description:description,
-				img:img,
-				author:author,
-				category:category,
-				date:date
+		var date = new Date();
+		if(typeof img == "undefined")
+			img = currentImage;
+		else
+			img = img;
+		var obj={
+			title:title,
+			description:description,
+			price:price,
+			stock:stock,
+			img:img,
+			author:author,
+			category:category,
+			date:date,
+			status:0
+		}
+		Meteor.call("UpdateSubmit",id,obj,function(erro){
+			if(erro){console.log(erro.reason())}
+			else{
+				console.log("SUCESS UPDATE");
+				Session.set('ADDIMAGEID',undefined);
+				Router.go("/admin/product");
 			}
-			Meteor.call("UpdateSubmit",id,obj,function(erro){
-				if(erro){console.log(erro.reason())}
-				else{
-					console.log("SUCESS UPDATE");
-					Router.go("/admin/product");
-				}
-			});
-		},
-		'change #img': function(event, template) {
+		});
+	},
+	'change #img': function(event, template) {
         var files = event.target.files;
         for (var i = 0, ln = files.length; i < ln; i++) {
           	images.insert(files[i], function (err, fileObj) {
