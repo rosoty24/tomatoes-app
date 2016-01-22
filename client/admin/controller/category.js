@@ -1,9 +1,14 @@
 Template.categories.events({
-	'submit form': function(e){
+	'click #submit': function(e){
 		e.preventDefault();
 		var title = $('#title').val();
-		var image = "img.jpg";
-		Meteor.call("addCat", title, image, function(err){
+		var img = Session.get('ADDIMAGEID');
+		//alert("Image "+img);
+		var obj={
+			title:title,
+			image:img
+		}
+		Meteor.call("addCat", obj, function(err){
 			if(err){
 				console.log(err);
 			}else{
@@ -11,21 +16,40 @@ Template.categories.events({
 				Router.go("/admin/manageCategory");
 			}
 		});
-	}
+	},
+	'change #img': function(event, template) {
+        var files = event.target.files;
+        for (var i = 0, ln = files.length; i < ln; i++) {
+          	images.insert(files[i], function (err, fileObj) {
+	            // Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
+            	Session.set('ADDIMAGEID', fileObj._id);
+          	});
+        }
+    }
 
 });
 Template.manageCategory.helpers({
 	manageCat: function(){
-		var result = category.find({});
-		console.log(result);
-		return result;
+		//alert();
+		return category.find({});
 	},
 	catName: function(cat){
 		if(cat=='0')
 			return;
 		var result = category.findOne({_id:cat});
 		return result.title;
-	}
+	},
+	getImage: function(image){
+        //var id = this.imgId;
+        //console.log('MyimageId:' + id);
+        var img = images.findOne({_id:image});
+        if(img){
+            console.log(img.copies.images.key);
+            return img.copies.images.key;
+        }else{
+            return;
+        }
+    }
 });
 
 Template.manageCategory.events({
