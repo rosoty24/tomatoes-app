@@ -23,7 +23,7 @@ Template.productDetail.helpers({
 });
 
 // comment
-Template.productDetail.events({
+Template.productdetails.events({
     "click #submit": function(e,tlp){
         e.preventDefault();
         var id = this._id;
@@ -32,7 +32,6 @@ Template.productDetail.events({
         var text = tlp.$('#comment').val();
         var userId = Meteor.userId();
         var type = "My type of products";
-        //var commentId = Random.id();
         var object={
             comments:
                 {
@@ -42,7 +41,7 @@ Template.productDetail.events({
                      type:type
                 }
         }
-        if(userId=userId){
+        if(userId){
             Meteor.call('updatePro',id,object);
         }else{
             alert("Please login");
@@ -56,12 +55,31 @@ Template.productDetail.events({
         
     // }
 });
-Template.productDetail.helpers({
+Template.productdetails.helpers({
     getPostCom:function(){
-        // alert("it success");
         var id = this._id;
         var result= products.find({_id:id});
         return result;
-        //console.log("Helll Pisey "+result);
+    },
+    getReview:function(){
+        var id = this._id;
+        console.log("MY ID IS "+id);
+        var result = review.find({productId:id});
+        console.log(" MY RESTLT IS "+result);
+        return result;
+    },
+    getUserReview:function(userId){
+        var result = users.findOne({_id:userId});
+        return result.profile.firstname;
+    },
+    getImage: function(){
+        var image = this.img;
+        var img = images.findOne({_id:image});
+        if(img){
+            console.log(img.copies.images.key);
+            return img.copies.images.key;
+        }else{
+            return;
+        }
     }
 });
