@@ -14,7 +14,12 @@ Template.addreview.events({
 			type:type,
 			date:date
 		}
-		Meteor.call("insertReview",obj);
+		if(userId=userId){
+			Meteor.call("insertReview",obj);
+		}else{
+			alert('you need to login first!!!!!')
+		}
+		
 	},
 	"click #remove":function(e){
         e.preventDefault();
