@@ -28,13 +28,18 @@ Template.homefront.events({
             proId:id,
             userId:user
          }
-        Meteor.call("insertFavorite",obj,function(error){
-            if(error){console.log("ERROR INSERT FAVORITE"+error.reason())}
-            else{
-                $("#like_"+id).addClass("hidden");
-                $("#unlike_"+id).removeClass("hidden");
-            }
-        });	
+         if(!user){
+            alert("Login First Before Like");
+            Router.go("/login");
+         }else{
+            Meteor.call("insertFavorite",obj,function(error){
+                if(error){console.log("ERROR INSERT FAVORITE"+error.reason())}
+                else{
+                    $("#like_"+id).addClass("hidden");
+                    $("#unlike_"+id).removeClass("hidden");
+                }
+            });	
+        }
 	},
 	'click .unlike':function(e){
 		e.preventDefault(); 

@@ -47,6 +47,11 @@ Template.updateProduct.events({
 		var title =$('#title').val();
 		var url =$('#url').val();
 		var img = Session.get('ADDIMAGEID');
+		var currentImage = $("#current").val();
+		if(typeof img == "undefined")
+			img = currentImage;
+		else
+			img = img;
 		var websites = url.replace(/(http.*?\/\/)(.*?.com|.*?\w+)(\/.*)/ig, "$2");
 		var website= websites.replace('www.','');
 		var description =$('#description').val();//CKEDITOR.instances.editor1.getData();
@@ -66,6 +71,7 @@ Template.updateProduct.events({
 				if(erro){console.log(erro.reason())}
 				else{
 					console.log("SUCESS UPDATE");
+					Session.set('ADDIMAGEID',undefined);
 					Router.go("/admin/product");
 				}
 			});
