@@ -2,14 +2,14 @@ Template.addreview.events({
 	"click #btnreview":function(e,tlp){
 		e.preventDefault();
 		var text = tlp.$('#text').val();
-		var productiId= tlp.$('#products').val();
+		var productId= tlp.$('#products').val();
+		alert(productId);
 		var userId = Meteor.userId();
-		var proId = $('#productName').val();
+		//var proId = $('#productName').val();
 		//var date = new Date();
-		   var today = new Date();
+		 var today = new Date();
     	var dd = today.getDate();
-    	var mm = today.getMonth()+1; //January is 0!
-
+    	var mm = today.getMonth()+1; 
 	    var yyyy = today.getFullYear();
 	    if(dd<10){
 	        dd='0'+dd
@@ -19,12 +19,11 @@ Template.addreview.events({
 	    } 
 	    var date = dd+'/'+mm+'/'+yyyy;
 	    alert(date);
-
 		var type = "Products Type";
-		alert('Can Get :'+text+productiId+userId);
+		alert('Can Get :'+text+productId+userId);
 		var obj={
 			text:text,
-			productId:productiId,
+			productId:productId,
 			userId:Meteor.userId(),
 			type:type,
 			date:date

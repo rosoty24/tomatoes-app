@@ -1,10 +1,13 @@
 Template.productDetail.helpers({
-	getProduct:function(){
-		return products.find();
-	},
-	getImage: function(image){
-        //var id = this.imgId;
-        //console.log('MyimageId:' + id);
+	getallReview:function(){
+    	var id = this._id;
+    	console.log("MY ID IS "+id);
+    	var result = review.find({productId:id});
+    	console.log(" MY RESTLT IS "+result);
+    	return result;
+    },
+	getImage: function(){
+		var image = this.img;
         var img = images.findOne({_id:image});
         if(img){
             console.log(img.copies.images.key);
@@ -12,10 +15,6 @@ Template.productDetail.helpers({
         }else{
             return;
         }
-    },
-    getReview:function(){
-    	var id = this._id;
-    	return review.find({productiId:id});
     },
     getUser:function(userId){
     	var result = users.findOne({_id:userId});
