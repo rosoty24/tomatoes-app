@@ -70,3 +70,9 @@ Template.updateCategory.events({
 	}
 });
 
+Template.header.helpers({
+	getCategory:function(){
+		return category.find();
+	}
+	
+});

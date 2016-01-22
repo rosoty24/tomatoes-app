@@ -3,11 +3,11 @@ Template.addreview.events({
 		e.preventDefault();
 		var text = tlp.$('#text').val();
 		var productId= tlp.$('#products').val();
-		alert(productId);
+		//alert(productId);
 		var userId = Meteor.userId();
 		//var proId = $('#productName').val();
 		//var date = new Date();
-		 var today = new Date();
+		var today = new Date();
     	var dd = today.getDate();
     	var mm = today.getMonth()+1; 
 	    var yyyy = today.getFullYear();
@@ -18,13 +18,14 @@ Template.addreview.events({
 	        mm='0'+mm
 	    } 
 	    var date = dd+'/'+mm+'/'+yyyy;
-	    alert(date);
+	    //alert(date);
 		var type = "Products Type";
-		alert('Can Get :'+text+productId+userId);
+		//alert('Can Get :'+text+productId+userId);
 		var obj={
 			text:text,
 			productId:productId,
 			userId:Meteor.userId(),
+			productId:productId,
 			type:type,
 			date:date
 		}
