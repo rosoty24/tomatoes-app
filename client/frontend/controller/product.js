@@ -15,7 +15,7 @@ Template.productDetail.helpers({
     },
     getReview:function(){
     	var id = this._id;
-    	return review.find({proId:id});
+    	return review.find({productiId:id});
     },
     getUser:function(userId){
     	var result = users.findOne({_id:userId});

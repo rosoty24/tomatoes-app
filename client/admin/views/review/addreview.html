@@ -7,9 +7,10 @@
 					<form role="form">
                         <div class="form-group">
                             <label>Add Select</label>
-                            <select class="form-control" required id="productName">
+                            <select class="form-control" required>
+                                <option value="" style="display:none">--- selected ---</option>
 	                           	{{#each getProduct}}
-									<option value="{{_id}}">{{title}}</option>
+									<option value="{{_id}}" id="products">{{title}}</option>
 								{{/each}}
 							</select>
                         </div>
@@ -41,7 +42,7 @@
 	                                    <td class="text-center">
 	                                        <a href="#" class="btn btn-primary btn-xs">View</a>
 	                                        <a href="#" id="remove" class="btn btn-danger btn-xs">Delete</a>
-	                                        <a href="#" class="btn btn-primary btn-xs">Edit</a>
+	                                        <a href="/admin/updateReview/{{_id}}" id="edituser" class="btn btn-primary btn-xs">Edit</a>
 	                                    </td>
 	                                </tr>
 	                            {{/each}}
