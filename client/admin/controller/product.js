@@ -6,18 +6,17 @@ Template.addproduct.events({
 		//var timestamp = (new Date(datestr.split(".").join("-")).getTime())/1000;
 		var author = Meteor.userId();
 		var title = $('#title').val();
-		var url = $('#url').val();
+		var price = $('#price').val();
+		var stock = $("#stock").val();
 		var img = Session.get('ADDIMAGEID');
-		var websites = url.replace(/(http.*?\/\/)(.*?.com|.*?\w+)(\/.*)/ig, "$2");
-		var website= websites.replace('www.','');
-		console.log("My website :"+website);
 		var description = $('#description').val();
 		var category =$('#category').val();
 		var date = new Date();
 		var obj = {
 			title:title,
-			website:website,
 			description:description,
+			price:price,
+			stock:stock,
 			img:img,
 			author:author,
 			category:category,
