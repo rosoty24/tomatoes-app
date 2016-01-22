@@ -15,7 +15,8 @@ Template.adduser.events({
 });
 Template.adduser.helpers({
 	getRoles:function(){
-        var result= Meteor.roles.find({});
+        var result= Meteor.roles.find();
+        console.log("My Role :"+JSON.stringify(result));
         return result;
     }
 });
