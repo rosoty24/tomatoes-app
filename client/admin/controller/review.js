@@ -4,6 +4,7 @@ Template.addreview.events({
 		var text = tlp.$('#text').val();
 		var productiId= tlp.$('#products').val();
 		var userId = Meteor.userId();
+		var proId = $('#productName').val();
 		var date = new Date();
 		var type = "Products Type";
 		alert('Can Get :'+text+productiId+userId);
@@ -11,15 +12,11 @@ Template.addreview.events({
 			text:text,
 			productId:productiId,
 			userId:Meteor.userId(),
+			proId:proId,
 			type:type,
 			date:date
 		}
-		if(userId=userId){
-			Meteor.call("insertReview",obj);
-		}else{
-			alert('you need to login first!!!!!')
-		}
-		
+		Meteor.call("insertReview",obj);
 	},
 	"click #remove":function(e){
         e.preventDefault();
@@ -36,9 +33,6 @@ Template.addreview.helpers({
 	},
 	getProduct:function(){
 		return products.find({});
-	},
-	getProname:function(pro){
-		return products.findOne({_id:pro}).title;
 	}
 });
 Template.updateReview.events({
@@ -58,7 +52,7 @@ Template.updateReview.events({
 			type:type,
 			date:date
 		}
-		Meteor.call("EditReview",id,obj);
+		Meteor.call("insertReview",id,obj);
 		Router.go('/admin/addreview')
 	}
 });
