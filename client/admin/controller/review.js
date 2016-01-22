@@ -5,7 +5,22 @@ Template.addreview.events({
 		var productiId= tlp.$('#products').val();
 		var userId = Meteor.userId();
 		var proId = $('#productName').val();
-		var date = new Date();
+		//var date = new Date();
+		   var today = new Date();
+    	var dd = today.getDate();
+    	var mm = today.getMonth()+1; //January is 0!
+
+	    var yyyy = today.getFullYear();
+	    if(dd<10){
+	        dd='0'+dd
+	    } 
+	    if(mm<10){
+	        mm='0'+mm
+	    } 
+	    var date = dd+'/'+mm+'/'+yyyy;
+	    alert(date);
+
+
 		var type = "Products Type";
 		alert('Can Get :'+text+productiId+userId);
 		var obj={

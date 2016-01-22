@@ -16,6 +16,9 @@ Template.productDetail.helpers({
     getReview:function(){
     	var id = this._id;
     	return review.find({proId:id});
-
+    },
+    getUser:function(userId){
+    	var result = users.findOne({_id:userId});
+    	return result.profile.firstname;
     }
 });
