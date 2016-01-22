@@ -31,6 +31,9 @@ Template.addreview.helpers({
 	},
 	getProduct:function(){
 		return products.find({});
+	},
+	getProname:function(pro){
+		return products.findOne({_id:pro}).title;
 	}
 });
 Template.updateReview.events({
@@ -50,7 +53,7 @@ Template.updateReview.events({
 			type:type,
 			date:date
 		}
-		Meteor.call("insertReview",id,obj);
+		Meteor.call("EditReview",id,obj);
 		Router.go('/admin/addreview')
 	}
 });
