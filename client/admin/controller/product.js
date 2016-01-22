@@ -123,35 +123,6 @@ Template.allproduct.helpers({
         }
     }
 });
-Template.home.helpers({
-	getAuthorname:function(author){
-		console.log("AUTHOR="+author);
-	    var result = Meteor.users.findOne({_id:author});
-		return result.profile.firstname+" "+result.profile.lastname;
-	},
-	'createdOn': function() {
-        return new Date();
-    },
-	getPost:function(){
-		var webname = Session.get("WEB-NAME");
-		if(webname)
-			return post.find({website:webname});
-		else
-			return post.find({});
-	},
-	getCategory:function(){
-		var id = this.category;
-		return category.findOne({_id:id}).title;
-	}
-});
-Template.home.events({
-	"click .web":function(e){
-		e.preventDefault();
-		var id = this._id;
-		var webname = $("#web_"+id).text();
-		Session.set("WEB-NAME",webname);
-	}
-});
 Template.addproduct.helpers({
 	getCategory:function(){
 		return category.find();

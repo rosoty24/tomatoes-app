@@ -1,61 +1,52 @@
 Template.homefront.helpers({
-	getAllPost:function(){
-		return post.find();
+	getAllproduct:function(){
+		return products.find();
 	},
 	getFavorite:function(){
 		//var id = Session.get("getProId");
 		var id = this._id;
 		return favorite.find({proId:id}).count();
-	}
+	},
+    getImage: function(image){
+        var img = images.findOne({_id:image});
+        if(img){
+            console.log(img.copies.images.key);
+            return img.copies.images.key;
+        }else{
+            return;
+        }
+    }
 });
 
 Template.homefront.events({
-	'click #title':function(e){
+	'click .like':function(e){
 		e.preventDefault();
-		var id = this._id;	
-	},
-	'click .addlike':function(e){
-		e.preventDefault();
-        var id=this._id;
-        //Session.set("getProId",id);
-		//var userId = Meteor.userId();
-		console.log('id'+Session.get('userId'));
-             if(Session.get('userId')){
-                 //alert();
-                 var obj={
-                    proId:id,
-                    userId:Session.get('userId')
-                 }
-
-                 Meteor.call('insertFavorite',obj,function(error){
-                 	if(error){console,log("Add like error"+error.reason())}
-                 	else{
-                 		$('#like_'+id).addClass('hidden');
-        				$('#unlike_'+id).removeClass('hidden');
-                 	}
-                 });
-            }
+		var id = this._id;
+        var user = Meteor.userId();
+        //alert("This is my like:"+id);
+        var obj={
+            proId:id,
+            userId:user
+         }
+        Meteor.call("insertFavorite",obj,function(error){
+            if(error){console.log("ERROR INSERT FAVORITE"+error.reason())}
             else{
-            	var newId=Meteor.userId();
-                Session.setPersistent('userId',newId);
-                 //var ses=Session.get('userId');
-                 
-                 var obj={
-                    proId:id,
-                    userId:Session.get('userId')
-                 }
-
-                 Meteor.call('insertFavorite',obj);
-                 //alert('Product successfully added to favorite!');
+                $("#like_"+id).addClass("hidden");
+                $("#unlike_"+id).removeClass("hidden");
             }
+        });	
 	},
-	'click .addunlike':function(e){
-		e.preventDefault();
+	'click .unlike':function(e){
+		e.preventDefault(); 
 		var id=this._id;
         var obj=favorite.findOne({proId:id});
         //alert(obj);
-        favorite.remove(obj._id);
-        $('#unlike_'+id).addClass('hidden');
-        $('#like_'+id).removeClass('hidden');
+        Meteor.call("deleteFavorite",id,obj,function(error){
+            if(error){console.log("ERROR DELETE FAVORITE"+error.reason())}
+            else{
+                $('#unlike_'+id).addClass('hidden');
+                $('#like_'+id).removeClass('hidden');
+            }
+        });
 	}
 });
