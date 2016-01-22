@@ -1,0 +1,24 @@
+<template name="productDetail">
+	<div class="container">
+		<div class="row">
+		    <div class="col-sm-12">
+		    <h2>product Detail</h2>
+		    <h1>product Detail</h1>
+		    	<div class="col-sm-6">
+		    		<img src="/uploads/{{getImage img}}" class="img-responsive">
+		    	</div>
+		    	<div class="col-sm-6">
+		    		<h3>Title {{title}}</h3>
+		    		<p>{{website}}</p>
+		    		<p>{{category}}</p>
+		    		<p>{{description}}</p>
+		    	</div>
+		    </div>
+		    <div class="col-sm-12">
+		    	{{#each getReview}}
+			    <h5>{{text}}</h5>
+			    {{/each}}
+		    </div>
+		</div>
+	</div>
+</template>
