@@ -84,7 +84,169 @@ Template.productdetails.events({
         }else{
             alert("Please login");
         }
+        
+        //post.update(this._id,object);
+        
     },
+    // "click .clickHere":function(e){
+    //     $(e.currentTarget).next(".hideCom").toggle();
+        
+    // }
+    'click #love':function(e){
+        e.preventDefault();
+        var id = this._id;
+        //alert(id);
+        var user = Meteor.userId();
+        //alert(user);
+        var obj={
+            proId:id,
+            userId:user,
+            status : 1
+         }
+         if(!user){
+            alert("Login First Before Click on this button");
+            Router.go("/login");
+         }else{
+            Meteor.call("insertLove",obj);
+            // Meteor.call("insertFavorite",obj,function(error){
+            //     if(error){console.log("ERROR INSERT FAVORITE"+error.reason())}
+            //     else{
+            //         $("#like_"+id).addClass("hidden");
+            //         $("#unlike_"+id).removeClass("hidden");
+            //     }
+            // }); 
+        }
+    },
+    'click #like':function(e){
+        e.preventDefault();
+        var id = this._id;
+        //alert(id);
+        var user = Meteor.userId();
+        //alert(user);
+        var obj={
+            proId:id,
+            userId:user,
+            status : 2
+         }
+         if(!user){
+            alert("Login First Before Click on this button");
+            Router.go("/login");
+         }else{
+            Meteor.call("insertLike",obj);
+        }
+    },
+    'click #dislike':function(e){
+        e.preventDefault();
+        var id = this._id;
+        var user = Meteor.userId();
+        var obj={
+            proId:id,
+            userId:user,
+            status : 3
+         }
+         if(!user){
+            alert("Login First Before Click on this button");
+            Router.go("/login");
+         }else{
+            Meteor.call("insertDislike",obj);
+        }
+    },
+    'click #winter':function(e){
+        e.preventDefault();
+        var id = this._id;
+        var user = Meteor.userId();
+        var obj={
+            proId:id,
+            userId:user,
+            status : 4
+         }
+         if(!user){
+            alert("Login First Before Click on this button");
+            Router.go("/login");
+         }else{
+            Meteor.call("insertWinter",obj);
+        }
+    },
+    'click #spring':function(e){
+        e.preventDefault();
+        var id = this._id;
+        var user = Meteor.userId();
+        var obj={
+            proId:id,
+            userId:user,
+            status : 5
+         }
+         if(!user){
+            alert("Login First Before Click on this button");
+            Router.go("/login");
+         }else{
+            Meteor.call("insertSpring",obj);
+        }
+    },
+    'click #summer':function(e){
+        e.preventDefault();
+        var id = this._id;
+        var user = Meteor.userId();
+        var obj={
+            proId:id,
+            userId:user,
+            status : 6
+         }
+         if(!user){
+            alert("Login First Before Click on this button");
+            Router.go("/login");
+         }else{
+            Meteor.call("insertSummer",obj);
+        }
+    },
+    'click #fall':function(e){
+        e.preventDefault();
+        var id = this._id;
+        var user = Meteor.userId();
+        var obj={
+            proId:id,
+            userId:user,
+            status : 7
+         }
+         if(!user){
+            alert("Login First Before Click on this button");
+            Router.go("/login");
+         }else{
+            Meteor.call("insertFall",obj);
+        }
+    },
+    'click #day':function(e){
+        e.preventDefault();
+        var id = this._id;
+        var user = Meteor.userId();
+        var obj={
+            proId:id,
+            userId:user,
+            status : 8
+         }
+         if(!user){
+            alert("Login First Before Click on this button");
+            Router.go("/login");
+         }else{
+            Meteor.call("insertDay",obj);
+        }
+    },
+    'click #night':function(e){
+        e.preventDefault();
+        var id = this._id;
+        var user = Meteor.userId();
+        var obj={
+            proId:id,
+            userId:user,
+            status : 9
+         }
+         if(!user){
+            alert("Login First Before Click on this button");
+            Router.go("/login");
+         }else{
+            Meteor.call("insertNight",obj);
+        }
+    }
 });
 Template.productdetails.helpers({
     getPostCom:function(){
