@@ -1,14 +1,18 @@
 Template.addproduct.events({
-	'submit form':function(e){
+	'click #btnSubmit':function(e,tlp){
 		e.preventDefault();
 		var datestr = new Date().toString("yyyy-MM-dd HH:mm:ss");
 		var author = Meteor.userId();
-		var title = $('#title').val();
-		var price = $('#price').val();
-		var stock = $("#stock").val();
+		var title = tlp.$('#title').val();
+		var price = tlp.$('#price').val();
+		var stock = tlp.$("#stock").val();
 		var img = Session.get('ADDIMAGEID');
-		var description = $('#description').val();
+		var description = tlp.$('#description').val();
 		var category =$('#category').val();
+		var smell =  Session.get('perfume');
+		/*var array = [];
+			array.push(smell);
+			console.log("Hello Smell "+smell);*/
 		var date = new Date();
 		var obj = {
 			title:title,
@@ -18,6 +22,7 @@ Template.addproduct.events({
 			img:img,
 			author:author,
 			category:category,
+			array:smell,
 			date:date,
 			status:0
 		}
@@ -32,7 +37,28 @@ Template.addproduct.events({
             	Session.set('ADDIMAGEID', fileObj._id);
           	});
         }
+    },
+    'click #add':function(e,tlp){
+    	e.preventDefault();
+    	//alert();
+    	var num = tlp.$('#number').val();
+    	var cod = tlp.$('#code').val();
+    	var obj = {
+    	 	number:num,
+    	 	code:cod
+    	 }
+    	
+    		 arr.push(obj);
+    		 Session.set('perfume',arr);
     }
+});
+var arr = [];
+Template.addproduct.helpers({
+
+	perfume:function(){
+		var perfume = Session.get('perfume');
+		return perfume;
+	}
 });
 Template.updateProduct.events({
 	'click #btnUpdate': function(e){

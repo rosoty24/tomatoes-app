@@ -1,6 +1,10 @@
 Meteor.publish('users', function (){ 
   return users.find({});
 });
+Meteor.publish(null, function (){ 
+  return Meteor.roles.find({})
+});
+
 
 Meteor.publish('products', function (){ 
   return products.find({})
@@ -23,5 +27,7 @@ Meteor.publish('favorite', function (){
 Meteor.publish('review', function (){ 
   return review.find({});
 });
-
+Meteor.publish('feeling', function (){ 
+  return feeling.find({});
+});
 
