@@ -14,7 +14,9 @@
                         <img src="/uploads/{{getImage img}}" height="100" alt="Place image"></a>
                         <div class="caption">
                             <h3>{{title}}</h3>
-                            <p>{{description}}</p>
+                            <div class="desc-size">
+                                <p>{{description}}</p>
+                            </div>
                             <p>
                                 <p>{{getFavorite _id}}</p>
                                 <a href="#" id="like_{{_id}}" class="btn btn-primary like">Like</a>

@@ -28,4 +28,32 @@ Template.listuser.helpers({
         return allUser;
     }
 });
+Template.listuser.events({
+    'click #remove': function(e){
+        e.preventDefault();
+        var id = this._id;
+        Meteor.call('deleteUser', id);
+        
+    }
+});
+Template.adduser.events({
+    'click #edituser': function(e){
+        e.preventDefault();
+        //alert();
+        var id = this._id;
+        var username = $('#username').val();
+        var fname = $('#firstname').val();
+        var lname = $('#lastname').val();
+        var email = $('#email').val();
+        var mySelect = $('#mySelect').val();
+        //alert(username+fname+lname+email);
+        var obj={
+            profile:{username:username,fname:fname,lname:lname},
+            email:email,
+            mySelect:mySelect
+        }
+        Meteor.call('addUser',id,obj);
+        Router.go('/admin/manageCategory');
+    }
+});
 
