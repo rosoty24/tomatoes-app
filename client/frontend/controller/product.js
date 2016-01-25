@@ -88,10 +88,44 @@ Template.productdetails.events({
         //post.update(this._id,object);
         
     },
+    'click #like':function(e){
+        e.preventDefault();
+        var id = this._id;
+        var user = Meteor.userId();
+        //alert("This is my like:"+id);
+        var obj={
+            proId:id,
+            userId:user
+         }
+         if(!user){
+            alert("Login First Before Like");
+            Router.go("/login");
+         }else{
+            Meteor.call("insertFavorite",obj,function(error){
+                if(error){console.log("ERROR INSERT FAVORITE"+error.reason())}
+                else{
+                     $("#like").addClass("hidden");
+                    $("#unlike").removeClass("hidden");
+                }
+            }); 
+        }
+    },
+    'click .unlike':function(e){
+        e.preventDefault(); 
+        var id=this._id;
+        var user = Meteor.userId();
+        Meteor.call("deleteFavorite",id,user,function(error){
+            if(error){console.log("ERROR DELETE FAVORITE"+error.reason())}
+            else{
+                $('#unlike').addClass('hidden');
+                $('#like').removeClass('hidden');
+            }
+        });
     // "click .clickHere":function(e){
     //     $(e.currentTarget).next(".hideCom").toggle();
         
     // }
+    },
     'click #love':function(e){
         e.preventDefault();
         var id = this._id;
@@ -264,6 +298,26 @@ Template.productdetails.helpers({
     getUserReview:function(userId){
         var result = users.findOne({_id:userId});
         return result.profile.firstname;
+    },
+    getAllproduct:function(){
+        return products.find();
+    }
+    ,
+    getFavorite:function(){
+        var id = this._id;
+        var user = Meteor.userId();
+        return favorite.find({proId:id}).count();
+    },
+    currentlike:function(){
+        var user = Meteor.userId();
+        var result = favorite.findOne({proId:this._id,userId:user});
+        var userId = result.userId;
+        var pro = result.proId;
+        if(user == userId && pro == this._id)
+            return "Unlike";
+        else
+            return "Like";
+        console.log("DATARESULT="+pro);
     },
     getImage: function(){
         var image = this.img;
