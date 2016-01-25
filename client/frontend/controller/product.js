@@ -274,5 +274,9 @@ Template.productdetails.helpers({
         }else{
             return;
         }
+    },
+    getPerform:function(){ 
+        var result= data.find();
+        return result;
     }
 });

@@ -5,3 +5,11 @@
 	display: none;
 }
 .desc-size{height: 65px; overflow: hidden;}
+
+
+ul.social-network {
+    list-style: outside none none;
+    display: inline;
+    margin-left: 0px !important;
+    padding: 0px;
+}

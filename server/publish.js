@@ -30,4 +30,7 @@ Meteor.publish('review', function (){
 Meteor.publish('feeling', function (){ 
   return feeling.find({});
 });
+Meteor.publish('data', function (){ 
+  return data.find({});
+});
 
