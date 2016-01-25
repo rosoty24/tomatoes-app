@@ -23,5 +23,8 @@ Meteor.publish('favorite', function (){
 Meteor.publish('review', function (){ 
   return review.find({});
 });
+Meteor.publish('data', function (){ 
+  return data.find({});
+});
 
 

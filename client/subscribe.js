@@ -6,3 +6,4 @@ Meteor.subscribe("category");
 Meteor.subscribe("advertise");
 Meteor.subscribe("favorite");
 Meteor.subscribe("review");
+Meteor.subscribe("data");

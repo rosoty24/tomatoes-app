@@ -2,7 +2,7 @@ Meteor.methods({
   insertFavorite:function(attr){
     favorite.insert(attr);
   },
-  deleteFavorite:function(attr){
-    favorite.remove({"proId":attr});
+  deleteFavorite:function(id,user){
+    favorite.remove({proId:id,userId:user});
   }
 });

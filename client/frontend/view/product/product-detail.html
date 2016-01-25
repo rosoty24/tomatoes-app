@@ -1,11 +1,20 @@
 <template name="productdetails">
     <div class="container con-body">
         <div class="row">
+        
             <div class="col-lg-8">
                 <div class="span5">
                     <img src="/uploads/{{getImage}}" class="img-responsive">
+                    
                 </div>
+                    <p>
+                    <p>{{getFavorite}}</p>
+                        <a href="#" id="like" class="btn btn-primary like">Like</a>
+                        <a href="#" id="unlike" class="btn btn-primary unlike hidden">Unlike</a> 
+                    </p>
+
             </div>
+          
             <div class="col-lg-4">
                 <div class="span7">
                     <h2>{{title}}</h2>
