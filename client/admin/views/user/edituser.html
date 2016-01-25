@@ -16,23 +16,26 @@
                             </div> 
                             <div class="form-group">
                                 <label>Firstname</label>
-                                <input class="form-control" value="{{profile.firstname}}" id="firstname">
+                                <input class="form-control" name="firstname" value="{{profile.firstname}}" id="firstname">
                             
                             </div> 
                             <div class="form-group">
                                 <label>Lastname</label>
-                                <input class="form-control" value="{{profile.lastname}}" id="lastname">
+                                <input class="form-control" name="lastname" value="{{profile.lastname}}" id="lastname">
                             
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input class="form-control" value="{{emails.address}}" type="email" id="email">
+                                {{#each emails}}
+                                <input class="form-control" value="{{address}}" type="email" id="email">
+                                {{/each}}
                             </div> 
                             <div class="form-group">
                                 <label>Permission</label>
                                 <select name="language" id="mySelect" class="form-control">
+                                    <option value="{{name}}" style="display:none">{{position roles}}</option>
                                     {{#each getRoles}}
-                                        <option value="{{_id}}">{{name}}</option>
+                                         <option value="{{name}}">{{name}}</option>
                                     {{/each}}
                                 </select>
                             </div> 
