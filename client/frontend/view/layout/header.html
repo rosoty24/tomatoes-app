@@ -1,95 +1,57 @@
 <template name="header">
-	 <div id="main_navbar" class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main_navbar_items">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" style="padding: 7px;" href="/" title="PrepBootstrap - Bootstrap Themes and Templates">
-                    <img src="/images/logo.png" border="0" style="vertical-align: middle;" height="100%" />
-                </a>
-            </div>
-            <div id="main_navbar_items" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    {{#each getCatename}}
-                        <li class=""><a href="/disProduct/{{_id}}" title="BootStrap Templates">{{title}}</a></li>
-                    {{/each}}  
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                	{{#if currentUser}}
-                       	<li class=""><a href="/login?returnUrl=%2Faccount">
-                    		{{currentUser.profile.firstname}} {{currentUser.profile.lastname}}
-                    	</a></li>
-                        <li class=""><a href="#" id="logout">Logout</a></li> 
-                    {{else}}
-                    	<li class=""><a href="/login">LOGIN</a></li>
-                    {{/if}}
-                    <li style="margin: 10px;">
-                        <div style="display: inline-block; float: left;">
-                            <input id="search_input" type="text" style="width: 200px;" placeholder="Search..." />
+	<nav>
+        <div class="container-fluid">
+            <div class="nav-top clearfix">        
+                <div class="logo hidden-xs">
+                    <section class="topnav">
+                        <div class="col-md-3">
+                            <ul class="social-network social-circle">
+                                <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+                                <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
                         </div>
-                        <div style="display: inline-block; float: left; margin-top: 3px; margin-left: 5px;">
-                            <span class="glyphicon glyphicon-filter" style="font-size: 18px;"></span>
+                        <div class="col-md-6">
+                            <h4 class="text-center">THE FIRST BEAUTY REVIEW AGGREGATOR</h4>
                         </div>
-                    </li>
-                </ul>
-            </div>
-            <nav>
-            <div class="container-fluid">
-                <div class="nav-top clearfix">        
-                    <div class="logo hidden-xs">
-                        <section class="topnav">
-                            <div class="col-md-3">
-                                <ul class="social-network social-circle">
-                                    <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
-                                    <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <h4 class="text-center">THE FIRST BEAUTY REVIEW AGGREGATOR</h4>
-                            </div>
-                            <div class="col-md-3">
-                                <h4 class="text-right"><i class="fa fa-search"></i></h4>
-                            </div>
-                        </section>
-                        <div class="logo">
-                            <h1 class="text-center hidden-xs"><a href="index.html"><img src="/images/logo_lg.png"></a></h1>
+                        <div class="col-md-3">
+                            <h4 class="text-right"><i class="fa fa-search"></i></h4>
                         </div>
+                    </section>
+                    <div class="logo">
+                        <h1 class="text-center hidden-xs"><a href="index.html"><img src="images/logo_lg.png"></a></h1>
                     </div>
-                    <div class="logo-responsive hidden-lg hidden-sm hidden-md">
-                        <a href="index.html"><img src="images/small_xs.png"></a>
-                    </div>
-                    <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i></button>
                 </div>
-            </div>
-            <!-- end nav top -->
-            
-            <div class="main-nav navbar-collapse collapse">
-                <div class="container">
-                    <div class="minilogo">
-                        <h1><a href="index.html"><img src="images/small_xs.png"></a></h1>
-                    </div>
-                    <ul class="nav nav-justified">
-                        <li><a class="active" href="#">NEWS</a></li>
-                        <li><a href="#">HOW TO</a></li>
-                        <li><a href="#">MAKEUP</a></li>
-                        <li><a href="#">FACIALS CARE</a></li>               
-                        <li><a href="#">HAIR</a></li>
-                        <li><a href="#">BODY CARE</a></li>
-                        <li><a href="#">FRAGRANCE</a></li>
-                        <li><a href="#">ETHNIC</a></li>
-                        <li><a href="#">BIO</a></li>
-                    </ul>
-                  
+                <div class="logo-responsive hidden-lg hidden-sm hidden-md">
+                    <a href="index.html"><img src="images/small_xs.png"></a>
                 </div>
+                <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i></button>
             </div>
-        </nav>
         </div>
+        <!-- end nav top -->
         
-    </div>
+        <div class="main-nav navbar-collapse collapse">
+            <div class="container">
+                <div class="minilogo">
+                    <h1><a href="index.html"><img src="images/small_xs.png"></a></h1>
+                </div>
+                <ul class="nav nav-justified">
+                    <li><a class="active" href="#">NEWS</a></li>
+                    <li><a href="#">HOW TO</a></li>
+                    <li><a href="#">MAKEUP</a></li>
+                    <li><a href="#">FACIALS CARE</a></li>               
+                    <li><a href="#">HAIR</a></li>
+                    <li><a href="#">BODY CARE</a></li>
+                    <li><a href="#">FRAGRANCE</a></li>
+                    <li><a href="#">ETHNIC</a></li>
+                    <li><a href="#">BIO</a></li>
+                </ul>
+                <!--<div class="minisearch">
+                    <h1><a href="index.html"><i class="fa fa-search"></i></h1>
+                </div> -->
+            </div>
+        </div>
+    </nav>
 </template>

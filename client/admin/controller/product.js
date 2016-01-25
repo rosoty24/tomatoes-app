@@ -164,6 +164,9 @@ Template.addproduct.helpers({
         }else{
             return;
         }
+    },
+    getStuff: function(){
+        return "Amsterdam,Washington,Sydney,Beijing,Cairo";
     }
 });
 Template.header.events({

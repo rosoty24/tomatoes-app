@@ -1,4 +1,16 @@
 <template name="mainLayout">
 	{{> header}}
-  	{{> yield}}
+	<section class="stretch">
+		<div class="container">
+			{{> slider}}
+			<!-- wrapper -->
+			<div class="wrapper">
+				<div class="col-md-12">
+					{{> leftside}}
+  					{{> yield}}
+  				</div>
+			</div>
+			<!-- end wrapper-->
+		</div>
+	</section>
 </template >

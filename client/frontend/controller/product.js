@@ -275,8 +275,59 @@ Template.productdetails.helpers({
             return;
         }
     },
+
     getPerform:function(){ 
         var result= data.find();
         return result;
+},
+    getAccord:function(){
+        return data.find();
+    }
+});
+Template.details.helpers({
+   getProduct:function(){
+    return data.find();
+    },
+    getProductRelated:function(){
+        return products.find();
+    },
+    getImage: function(image){
+        //var id = this.imgId;
+        //console.log('MyimageId:' + id);
+        var img = images.findOne({_id:image});
+        if(img){
+            console.log(img.copies.images.key);
+            return img.copies.images.key;
+        }else{
+            return;
+        }
+    }
+});
+Template.details.events({
+     "click #comment": function(e,tlp){
+        e.preventDefault();
+        var id = this._id;
+        alert("id "+id);
+        var date = new Date();
+        var text = tlp.$('#comment').val();
+        var userId = Meteor.userId();
+        var type = "My type of products";
+        var object={
+            comments:
+                {
+                     text:text, 
+                     date:date, 
+                     userId:Meteor.userId(), 
+                     type:type
+                }
+        }
+        if(userId){
+            Meteor.call('updatePro',id,object);
+        }else{
+            alert("Please login");
+        }
+        
+        //post.update(this._id,object);
+        
     }
 });
