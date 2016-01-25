@@ -274,5 +274,8 @@ Template.productdetails.helpers({
         }else{
             return;
         }
+    },
+    getAccord:function(){
+        return data.find();
     }
 });

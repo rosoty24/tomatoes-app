@@ -7,3 +7,4 @@ Meteor.subscribe("advertise");
 Meteor.subscribe("favorite");
 Meteor.subscribe("review");
 Meteor.subscribe("feeling");
+Meteor.subscribe("data");
