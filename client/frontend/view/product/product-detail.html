@@ -60,6 +60,37 @@
                 <button type="button" class="btn btn-warning" id="day">Day</button>
                 <button type="button" class="btn btn-danger" id="night">Night</button>
         <div class="clearfix"></div>
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-8">
+                <h4>Perform</h4>
+                {{#each getPerform}}
+                    {{#with perfume_pyramid}}
+                        {{#each top_notes}}
+                            <div class="col-sm-4">
+                                <h4>{{name}}</h4>
+                                <img src="{{url}}" width="50" class="img-responsive">
+                            </div><br/>
+                        {{/each}}
+                        <h4>Middle Notes</h4>
+                        {{#each middle_notes}}
+                            <div class="col-sm-4">
+                                <h4>{{name}}</h4>
+                                <img src="{{url}}" width="50" class="img-responsive">
+                            </div><br/>
+                        {{/each}}
+                        <h4>Base Notes</h4>
+                        {{#each base_notes}}
+                            <div class="col-sm-4">
+                                <h4>{{name}}</h4>
+                                <img src="{{url}}" width="50" class="img-responsive">
+                            </div><br/>
+                        {{/each}}
+                    {{/with}}
+                {{/each}}
+                </div>
+            </div>
+        </div>
         <div class="row">
             <h2>Comment</h2>
             <div class="col-sm-12"><br/>

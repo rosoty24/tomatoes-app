@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 152e7538238007346dda5a5ba9c0f2b0021a0b0b
 /* Large desktops and laptops */
 @media (min-width: 1200px) {
 	.container-fluid{
@@ -28,6 +31,7 @@
 @media (max-width: 480px) {
 
 }
+<<<<<<< HEAD
 =======
 /* Large desktops and laptops */
 @media (min-width: 1200px) {
@@ -59,3 +63,5 @@
 
 }
 >>>>>>> da8c79e3b40b4c4de6c38654a9f64412c343073a
+=======
+>>>>>>> 152e7538238007346dda5a5ba9c0f2b0021a0b0b

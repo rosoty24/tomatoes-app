@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 152e7538238007346dda5a5ba9c0f2b0021a0b0b
 	/** Document Ready Functions **/
 /********************************************************************/
 
@@ -72,6 +75,7 @@ function scaleBannerVideoSize(element){
 
     });
 }
+<<<<<<< HEAD
 =======
 	/** Document Ready Functions **/
 /********************************************************************/
@@ -147,3 +151,5 @@ function scaleBannerVideoSize(element){
     });
 }
 >>>>>>> da8c79e3b40b4c4de6c38654a9f64412c343073a
+=======
+>>>>>>> 152e7538238007346dda5a5ba9c0f2b0021a0b0b
