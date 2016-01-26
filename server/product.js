@@ -1,4 +1,7 @@
 Meteor.methods({
+	updateComment:function(id,object){
+		data.update({_id:id},{$addToSet:{comments:object}});
+	},
 	insertSubmit: function(obj) {
   		products.insert(obj);
   	},
