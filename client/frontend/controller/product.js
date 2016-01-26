@@ -342,9 +342,8 @@ Template.details.helpers({
     getProductRelated:function(){
         var id = this._id;
         var catId =this.category;
-        console.log("CAT="+catId);
-        return data.find({category:catId});
-    }, 
+        return data.find({$and:[{category:catId},{_id:{$ne:id}}]});
+    },
     getImage: function(image){
         //var id = this.imgId;
         //console.log('MyimageId:' + id);
@@ -357,6 +356,7 @@ Template.details.helpers({
         }
     }
 });
+
 Template.details.events({
      "click #comment": function(e,tlp){
         e.preventDefault();
