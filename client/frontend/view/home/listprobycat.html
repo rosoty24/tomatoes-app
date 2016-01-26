@@ -1,25 +1,20 @@
 <template name="listdatabycat">
-    <section id="special-layout">
-        <div id="page-la-bases">
-            <div class="well-box">
-                <div class="row">
-                    {{#each getDatalist}}
-                        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 left-box row-pad">
-                            <p class="blue">{{name}}</p>
-                            <a href="/projectdetails/{{_id}}" title="Startup One Page">
-                                <img src="{{image}}" class="img-responsive center-block img-title" alt="Startup One Page" title="Startup One Page" width="266"/>
-                            </a>
-                            <!-- <p class="black-small">{{shortIt description}}</p>
-                            <p>Location: {{location}}</p>
-                            <p>Price: <b>${{goal}}</b></p>
-                            <p>End Date: <b>{{datemax}}</b></p> -->
-                            {{#each getcat}}
-                                <p>Category: <b>{{name}}</b></p>
-                            {{/each}}
-                        </div>
+    <div class="main-content">
+        <div class="col-md-8">
+            <div class="content">
+                <div class="row space-row">
+                {{#each getDatalist}}
+                   <div class="col-md-4"> 
+                     <img src="{{image}}" class="img-responsive center-block">
+                     <h3 class="space-top">Product Name: {{name}}</h3> 
+                     <h3 class="price">Id of Product: {{id_product}}</h3>
+                     {{#each getcat}}
+                        <h3>Category: <b>{{title}}</b></h3>
                     {{/each}}
+                   </div>
+                {{/each}}
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 </template>
