@@ -4,7 +4,7 @@
                     <div class="content">
                         <div class="row">
                         {{#each getData}}
-                            <div class="col-md-7">
+                            <div class="col-md-4">
                                 <h1>{{name}}</h1>
                                 <a href="/details/{{_id}}"><img src="{{image}}" class="img-responsive margin-bottom" alt=""></a>
                                 <!-- <div class="h2 color-yellow text-right">How To</div> -->
@@ -25,4 +25,5 @@
                     </div>end content--> 
                 </div>
             </div>
+            {{> pagination}}
 </template>
