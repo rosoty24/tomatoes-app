@@ -2,7 +2,7 @@
 	<div class="main-content">
 		<div class="col-md-8">
 			<div class="content-a">
-			   <h1 class="margin-bottom h1-bold">{{name}}</h1>
+			   <h1 class="margin-bottom h1-bold">{{product_name}}</h1>
 			   <img src="{{image}}" class="img-responsive margin-bottom" alt="" width="100%">
 			</div>
 			<div class="content">
@@ -85,25 +85,27 @@
                 <h1 class="margin-bottom h1-bold">MORE INFOS</h1>
                 <h3 class="space-nothing">Product explication</h3>
             </div>
-	        <div class="content-a">
-	            <h1 class="margin-bottom h1-bold">PROFESSIONAL CRITICS : INCARNATA D’ANATOLE LEBRETO .......</h1>
-	            <h2 class="text-fra">View All Professional Critics</h2>
-	        </div>
-	        <div class="content-a">
-	            <h1 class="margin-bottom h1-bold">RELATED</h1>
-	            <div class="row space-row">
-	                {{#each getProductRelated}}
-	                    <div class="col-md-4 row"> 
-	                        <a href="/details/{{_id}}">
-	                            <img src="{{image}}" class="img-responsive center-block" width="90%" height="150">
-	                        </a>
-	                        <h3 class="text-center space-top">{{name}}</h3> 
-	                        <h3 class="text-center price"> 97 % </h3>
-	                    </div>
-	                {{/each}}
-	            </div>  
-	        </div>
+            <h2 class="text-fra">View All User Critics</h2>
+        </div><!--end content-->
+        <div class="content-a">
+            <h1 class="margin-bottom h1-bold">RELATED</h1>
+            <div class="row space-row">
+                {{#each getProductRelated}}
+                    <div class="col-md-4 row"> 
+                        <a href="/details/{{_id}}">
+                            <img src="{{image}}" class="img-responsive center-block" width="90%" height="150">
+                        </a>
+                        <h3 class="text-center space-top">{{product_name}}</h3> 
+                        <h3 class="text-center price"> 97 % </h3>
+                    </div>
+                {{/each}}
+            </div>  
+        </div><!--end content-->
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         </div>
      </div>
-    </div>
+    
 </template>
