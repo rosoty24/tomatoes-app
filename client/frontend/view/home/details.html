@@ -2,9 +2,9 @@
 	<div class="main-content">
 		<div class="col-md-8">
 			<div class="content-a">
-			   <h1 class="margin-bottom h1-bold">{{name}}</h1>
-			   <img src="{{image}}" class="img-responsive margin-bottom" alt="" style="width:200px; height:170px; ">
-			</div><!--end content-->
+			   <h1 class="margin-bottom h1-bold">{{product_name}}</h1>
+			   <img src="{{image}}" class="img-responsive margin-bottom" alt="" width="100%">
+			</div>
 			<div class="content">
 				<div class="wrapper-fragrand">
 					<div class="col-md-7">
@@ -21,48 +21,19 @@
 					     <div class="space-top-fragrand color-a"> Critics Consensus : About Incarnata anatole Lebreton</div>
 					  </div>
 					</div>
-
-
-					<div class="col-md-5 border-left">
-					 <div class="wrapper-in">
-						  <h1 class="h1-bold">USER CRITICS</h1>
-						  <div class="h1"><i class="fa fa-circle fa-2x circle-color color-green"></i> <span class="lg-span">92%</span>
-						   </div>
-						  <div class="space-top-fragrand"> Average Rating: 8.2/10 <br> Reviews Counted: 327 </div>
-					 </div>
-					</div>
-				</div>
-
-			</div><!--end content-->
-			<!-- <div class="row">
-                <div class="col-sm-8">
-                <h4>Perform</h4>
-                {{#each getProduct}}
-                    {{#with perfume_pyramid}}
-                        {{#each top_notes}}
-                            <div class="col-sm-4">
-                                <h4>{{name}}</h4>
-                                <img src="{{url}}" width="50" class="img-responsive">
-                            </div><br/>
-                        {{/each}}
-                        <h4>Middle Notes</h4>
-                        {{#each middle_notes}}
-                            <div class="col-sm-4">
-                                <h4>{{name}}</h4>
-                                <img src="{{url}}" width="50" class="img-responsive">
-                            </div><br/>
-                        {{/each}}
-                        <h4>Base Notes</h4>
-                        {{#each base_notes}}
-                            <div class="col-sm-4">
-                                <h4>{{name}}</h4>
-                                <img src="{{url}}" width="50" class="img-responsive">
-                            </div><br/>
-                        {{/each}}
-                    {{/with}}
-                {{/each}}
+                    <div class="col-md-5 border-left">
+                        <div class="wrapper-in">
+                            <h1 class="h1-bold">USER CRITICS</h1>
+                            <div class="h1">
+                                <i class="fa fa-circle fa-2x circle-color color-green"></i> <span class="lg-span">92%</span>
+                            </div>
+                            <div class="space-top-fragrand"> Average Rating: 8.2/10 
+                                <br> Reviews Counted: 327 
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div> -->
+            </div>
 			<div class="content">
 			   <h1 class="margin-bottom h1-bold">ADD YOUR RATING </h1>
 			   <div class="col-md-6">
@@ -84,13 +55,11 @@
 				<div class="pull-right">
 				  <button type="button" class="btn btn-secondary" id="add-comment">SEND</button>	
 				</div>
-			</div><!--end content-->
-
+			</div>
 			<div class="content">
 			   <h1 class="margin-bottom h1-bold">MORE INFOS</h1>
 			   <h3 class="space-nothing">Product explication</h3>
-			</div><!--end content-->
-
+			</div>
 			<div class="content-a">
 			   <h1 class="margin-bottom h1-bold">PROFESSIONAL CRITICS : INCARNATA D’ANATOLE LEBRETO .......</h1>
 			<div class="row space-top-fragrand">
@@ -98,56 +67,45 @@
 					<div class="col-md-6">
 					<!-- show comment -->
 						<div class="show-comment"> 
-							<p class="text-comment">{{text}}</p>		
+							<p class="text-comment">{{text}}</p>	
+							<p>{{date}}</p>	
 						</div>
 						<!-- end show comment -->
 						<div style="float:left">
 							<img src="images/cycle.png" class="img-cycle responsive">
 						</div>
 						<div style="float:left">
-							<p class="text-name"> Name </p>
+							<p class="text-name">{{getUserComment userId}} </p>
 							<span class="color-text"> Company </span>
 						</div>
 					</div> 
 				{{/each}}
 			</div>
-
-
-              <h2 class="text-fra">View All Professional Critics</h2>
-
-			</div><!--end content-->
-
-			<div class="content-a">
-			   <h1 class="margin-bottom h1-bold">USER CRITICS : INCARNATA D’ANATOLE LEBRETO...</h1>
-			   
-			<h2 class="text-fra">View All User Critics</h2>
-
-			</div><!--end content-->
-
-			<div class="content-a">
-			   <h1 class="margin-bottom h1-bold">RELATED</h1>
-			   <div class="row space-row">
-			    	<!-- {{#each getProductRelated}}
-				   <div class="col-md-4 row"> 
-				     <img src="/uploads/{{getImage img}}" class="img-responsive center-block" style="padding-right:15px; padding-left:15px;">
-				     <h3 class="text-center space-top">{{title}}</h3> 
-				     <h3 class="text-center price"> 97 % </h3>
-				   </div>
-				    {{/each}} -->
-				    {{#each getProductRelated}}
-				   <div class="col-md-4 row"> 
-				      <img src="{{image}}" class="img-responsive center-block" style="width:120px; height:120px;">
-				      <h3 class="text-center space-top">{{name}}</h3> 
-				      <h3 class="text-center price"> 97 % </h3>
-				   </div>
-				   {{/each}}
-			   </div>  
-			</div><!--end content-->
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-
-		</div>
-	</div>
+            <div class="content">
+                <h1 class="margin-bottom h1-bold">MORE INFOS</h1>
+                <h3 class="space-nothing">Product explication</h3>
+            </div>
+            <h2 class="text-fra">View All User Critics</h2>
+        </div><!--end content-->
+        <div class="content-a">
+            <h1 class="margin-bottom h1-bold">RELATED</h1>
+            <div class="row space-row">
+                {{#each getProductRelated}}
+                    <div class="col-md-4 row"> 
+                        <a href="/details/{{_id}}">
+                            <img src="{{image}}" class="img-responsive center-block" width="90%" height="150">
+                        </a>
+                        <h3 class="text-center space-top">{{product_name}}</h3> 
+                        <h3 class="text-center price"> 97 % </h3>
+                    </div>
+                {{/each}}
+            </div>  
+        </div><!--end content-->
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        </div>
+     </div>
+    
 </template>

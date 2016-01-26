@@ -50,6 +50,9 @@ Template.home.helpers({
         }
         console.log('datapaginatoin='+JSON.stringify(array));
         return array;
+
+    getCatname:function(cat){
+        return category.findOne({_id:cat}).title;
     },
     getImage: function(image){
         //var id = this.imgId;

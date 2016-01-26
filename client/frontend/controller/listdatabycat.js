@@ -1,7 +1,7 @@
 Template.listdatabycat.helpers({
 	getcat:function(){
         var catId = this.category;
-        return category.find({_id:catId});
+        return category.findOne({_id:catId}).title;
     },
     getDatalist: function(){
         var catID = this._id;

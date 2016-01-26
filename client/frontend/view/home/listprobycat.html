@@ -4,14 +4,13 @@
             <div class="content">
                 <div class="row space-row">
                 {{#each getDatalist}}
-                   <div class="col-md-4"> 
-                     <img src="{{image}}" class="img-responsive center-block">
-                     <h3 class="space-top">Product Name: {{name}}</h3> 
-                     <h3 class="price">Id of Product: {{id_product}}</h3>
-                     {{#each getcat}}
-                        <h3>Category: <b>{{title}}</b></h3>
-                    {{/each}}
-                   </div>
+                    <div class="col-md-4"> 
+                        <a href="/details/{{_id}}">
+                            <img src="{{image}}" class="img-responsive center-block">
+                        </a>
+                        <h3 class="space-top">Product Name: {{product_name}}</h3>
+                        <h3>Category: <b>{{getcat}}</b></h3>
+                    </div>
                 {{/each}}
                 </div>
             </div>
