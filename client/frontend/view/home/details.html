@@ -2,10 +2,8 @@
 	<div class="main-content">
 		<div class="col-md-8">
 			<div class="content-a">
-			{{#each getProduct}}
 			   <h1 class="margin-bottom h1-bold">{{name}}</h1>
-			   <img src="{{image}}" class="img-responsive margin-bottom" alt="">
-			  {{/each}}
+			   <img src="{{image}}" class="img-responsive margin-bottom" alt="" style="width:200px; height:170px; ">
 			</div><!--end content-->
 
 			<div class="content">
@@ -98,8 +96,7 @@
 			<div class="content-a">
 			   <h1 class="margin-bottom h1-bold">PROFESSIONAL CRITICS : INCARNATA D’ANATOLE LEBRETO .......</h1>
 			<div class="row space-top-fragrand">
-				{{#each getProduct}}
-			    	{{#each comments}}
+			    {{#each comments}}
 					<div class="col-md-6">
 					<!-- show comment -->
 						<div class="show-comment"> 
@@ -114,7 +111,6 @@
 							<span class="color-text"> Company </span>
 						</div>
 					</div> 
-					{{/each}}
 				{{/each}}
 			</div>
 
@@ -140,11 +136,13 @@
 				     <h3 class="text-center price"> 97 % </h3>
 				   </div>
 				    {{/each}} -->
+				    {{#each getProductRelated}}
 				   <div class="col-md-4 row"> 
-				      <img src="images/grey-img.png" class="img-responsive center-block">
-				      <h3 class="text-center space-top">Titre news makeup </h3> 
+				      <img src="{{image}}" class="img-responsive center-block" style="width:120px; height:120px;">
+				      <h3 class="text-center space-top">{{name}}</h3> 
 				      <h3 class="text-center price"> 97 % </h3>
 				   </div>
+				   {{/each}}
 			   </div>  
 			</div><!--end content-->
 			<br/>
