@@ -50,7 +50,7 @@ Template.home.helpers({
         }
         console.log('datapaginatoin='+JSON.stringify(array));
         return array;
-
+    },
     getCatname:function(cat){
         return category.findOne({_id:cat}).title;
     },
