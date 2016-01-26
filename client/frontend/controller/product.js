@@ -339,12 +339,12 @@ Template.productdetails.helpers({
     }
 });
 Template.details.helpers({
-   getProduct:function(){
-    return data.find();
-    },
     getProductRelated:function(){
-        return products.find();
-    },
+        var id = this._id;
+        var catId =this.category;
+        console.log("CAT="+catId);
+        return data.find({category:catId});
+    }, 
     getImage: function(image){
         //var id = this.imgId;
         //console.log('MyimageId:' + id);
