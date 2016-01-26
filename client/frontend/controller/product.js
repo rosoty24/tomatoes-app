@@ -339,11 +339,10 @@ Template.productdetails.helpers({
     }
 });
 Template.details.helpers({
-   getProduct:function(){
-    return data.find();
-    },
     getProductRelated:function(){
-        return products.find();
+        var id = this._id;
+        var catId =this.category;
+        return data.find({$and:[{category:catId},{_id:{$ne:id}}]});
     },
     getImage: function(image){
         //var id = this.imgId;
@@ -357,6 +356,7 @@ Template.details.helpers({
         }
     }
 });
+
 Template.details.events({
      "click #comment": function(e,tlp){
         e.preventDefault();
