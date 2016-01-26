@@ -342,6 +342,10 @@ Template.details.helpers({
         var catId =this.category;
         return data.find({$and:[{category:catId},{_id:{$ne:id}}]});
     },
+    getUserComment:function(userId){
+        var result = users.findOne({_id:userId});
+        return result.profile.firstname;
+    },
     getImage: function(image){
         //var id = this.imgId;
         //console.log('MyimageId:' + id);
@@ -359,7 +363,17 @@ Template.details.events({
      "click #add-comment": function(e,tlp){
         e.preventDefault();
         var id = this._id;
-        var date = new Date();
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; 
+        var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd
+        } 
+        if(mm<10){
+            mm='0'+mm
+        } 
+        var date = dd+'/'+mm+'/'+yyyy;
         var text = tlp.$('#comment').val();
         var userId = Meteor.userId();
         var type = "My type of products";
