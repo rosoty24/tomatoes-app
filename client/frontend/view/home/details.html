@@ -4,7 +4,7 @@
 			<div class="content-a">
 			   <h1 class="margin-bottom h1-bold">{{product_name}}</h1>
 			   <img src="{{image}}" class="img-responsive margin-bottom" alt="" width="100%">
-			</div><!--end content-->
+			</div>
 			<div class="content">
 				<div class="wrapper-fragrand">
 					<div class="col-md-7">
@@ -55,53 +55,35 @@
 				<div class="pull-right">
 				  <button type="button" class="btn btn-secondary" id="add-comment">SEND</button>	
 				</div>
-			</div><!--end content-->
-
+			</div>
+			<div class="content">
+			   <h1 class="margin-bottom h1-bold">MORE INFOS</h1>
+			   <h3 class="space-nothing">Product explication</h3>
+			</div>
+			<div class="content-a">
+			   <h1 class="margin-bottom h1-bold">PROFESSIONAL CRITICS : INCARNATA D’ANATOLE LEBRETO .......</h1>
+			<div class="row space-top-fragrand">
+			    {{#each comments}}
+					<div class="col-md-6">
+					<!-- show comment -->
+						<div class="show-comment"> 
+							<p class="text-comment">{{text}}</p>	
+							<p>{{date}}</p>	
+						</div>
+						<!-- end show comment -->
+						<div style="float:left">
+							<img src="images/cycle.png" class="img-cycle responsive">
+						</div>
+						<div style="float:left">
+							<p class="text-name">{{getUserComment userId}} </p>
+							<span class="color-text"> Company </span>
+						</div>
+					</div> 
+				{{/each}}
+			</div>
             <div class="content">
                 <h1 class="margin-bottom h1-bold">MORE INFOS</h1>
                 <h3 class="space-nothing">Product explication</h3>
-            </div><!--end content-->
-
-        <div class="content-a">
-            <h1 class="margin-bottom h1-bold">PROFESSIONAL CRITICS : INCARNATA D’ANATOLE LEBRETO .......</h1>
-            <div class="row space-top-fragrand">
-                <div class="col-md-6">
-                    <!-- show comment -->
-                    <div class="show-comment"> 
-                        <p class="text-comment"></p>  
-                    </div>
-                      <!-- end show comment -->
-                    <div style="float:left">
-                        <img src="/images/cycle.png" class="img-cycle responsive">
-                    </div>
-                    <div style="float:left">
-                        <p class="text-name"> Name </p>
-                        <span class="color-text"> Company </span>
-                    </div>
-                </div> 
-           </div>
-            <h2 class="text-fra">View All Professional Critics</h2>
-        </div><!--end content-->
-
-        <div class="content-a">
-            <h1 class="margin-bottom h1-bold">USER CRITICS : INCARNATA D’ANATOLE LEBRETO...   </h1>
-            <div class="row space-top-fragrand">
-                {{#each comments}}
-                    <div class="col-md-6">
-                        <!-- show comment -->
-                        <div class="show-comment"> 
-                            <p class="text-comment">{{text}}</p>  
-                        </div>
-                          <!-- end show comment -->
-                        <div style="float:left">
-                            <img src="/images/cycle.png" class="img-cycle responsive">
-                        </div>
-                        <div style="float:left">
-                            <p class="text-name"> Name </p>
-                            <span class="color-text"> Company </span>
-                        </div>
-                     </div> 
-                {{/each}}
             </div>
             <h2 class="text-fra">View All User Critics</h2>
         </div><!--end content-->
@@ -124,5 +106,6 @@
         <br/>
         <br/>
         </div>
-    </div>
+     </div>
+    
 </template>
