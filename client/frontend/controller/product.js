@@ -388,13 +388,11 @@ Template.details.events({
                 if(error){console.log("ERROR"+error.reason())}
                 else{
                     console.log("SUCCESS");
+                    $("#comment").val("");
                 }
             });
         }else{
             alert("Please login");
         }
-        
-        //post.update(this._id,object);
-        
     }
 });
