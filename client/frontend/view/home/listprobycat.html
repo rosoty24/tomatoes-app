@@ -1,0 +1,20 @@
+<template name="listdatabycat">
+    <div class="main-content">
+        <div class="col-md-8">
+            <div class="content">
+                <div class="row space-row">
+                {{#each getDatalist}}
+                   <div class="col-md-4"> 
+                     <img src="{{image}}" class="img-responsive center-block">
+                     <h3 class="space-top">Product Name: {{name}}</h3> 
+                     <h3 class="price">Id of Product: {{id_product}}</h3>
+                     {{#each getcat}}
+                        <h3>Category: <b>{{title}}</b></h3>
+                    {{/each}}
+                   </div>
+                {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
