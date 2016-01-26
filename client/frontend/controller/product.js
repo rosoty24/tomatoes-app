@@ -25,7 +25,6 @@ Template.disProduct.events({
     'click .like':function(e){
         e.preventDefault();
         var id = this._id;
-        alert(id);
         var user = Meteor.userId();
         //alert("This is my like:"+id);
         var obj={
@@ -65,22 +64,21 @@ Template.productdetails.events({
     "click #submit": function(e,tlp){
         e.preventDefault();
         var id = this._id;
-        alert("id "+id);
         var date = new Date();
         var text = tlp.$('#comment').val();
         var userId = Meteor.userId();
         var type = "My type of products";
         var object={
-            comments:
+            comments:[
                 {
                      text:text, 
                      date:date, 
-                     userId:Meteor.userId(), 
-                     type:type
+                     user:Meteor.userId()
                 }
+            ]    
         }
         if(userId){
-            Meteor.call('updatePro',id,object);
+            Meteor.call('updateComment',id,object);
         }else{
             alert("Please login");
         }
@@ -358,30 +356,29 @@ Template.details.helpers({
 });
 
 Template.details.events({
-     "click #comment": function(e,tlp){
+     "click #add-comment": function(e,tlp){
         e.preventDefault();
         var id = this._id;
-        alert("id "+id);
         var date = new Date();
         var text = tlp.$('#comment').val();
         var userId = Meteor.userId();
         var type = "My type of products";
         var object={
-            comments:
-                {
-                     text:text, 
-                     date:date, 
-                     userId:Meteor.userId(), 
-                     type:type
-                }
+             text:text, 
+             date:date, 
+             userId:userId     
         }
+        alert(object);
         if(userId){
-            Meteor.call('updatePro',id,object);
+            Meteor.call('updateComment',id,object,function(error){
+                if(error){console.log("ERROR"+error.reason())}
+                else{
+                    console.log("SUCCESS");
+                    $("#comment").val("");
+                }
+            });
         }else{
             alert("Please login");
         }
-        
-        //post.update(this._id,object);
-        
     }
 });
