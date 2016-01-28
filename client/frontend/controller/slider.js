@@ -66,6 +66,7 @@ Template.mainLayout.helpers({
     checkslider:function(){
         var current = Router.current().route.path(this);
         console.log("CURRENT="+current);
+        
         if(current == "/"){
             return true;
         }else{
