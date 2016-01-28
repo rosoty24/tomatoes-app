@@ -408,7 +408,52 @@ Template.details.events({
         }
     }
 });
-/////////////////view all comments//////////////
+
+
+Template.perfumeDetail.helpers({
+    getIcon:function(feel){
+        console.log("MY FEELING IS "+feel);
+        if ( feel == "love" ) 
+            return "/images/img1.png";
+        else if ( feel == "like" ) 
+            return "/images/img2.png";
+        else if ( feel == "dislike" ) 
+            return "/images/img3.png";
+        else if ( feel == "winter" )
+            return "/images/img4.png";
+        else if ( feel == "spring" )
+            return "/images/img5.png";
+        else if ( feel == "summer" )
+            return "/images/img6.png";
+        else if ( feel == "fall" )
+            return "/images/img7.png";
+        else if ( feel == "day" )
+            return "/images/img8.png";
+        else if ( feel == "night" )
+            return "/images/img9.png";
+    },
+    getFeelColor:function(color){
+        if ( color == "love" ) 
+            return "progress-bar";
+        else if ( color == "like" ) 
+            return "progress-bar-a";
+        else if ( color == "dislike" ) 
+            return "progress-bar-b";
+        else if ( color == "winter" )
+            return "progress-bar-c";
+        else if ( color == "spring" )
+            return "progress-bar-e";
+        else if ( color == "summer" )
+            return "progress-bar-f";
+        else if ( color == "fall" )
+            return "progress-bar-g";
+        else if ( color == "day" )
+            return "progress-bar-h";
+        else if ( color == "night" )
+            return "progress-bar-i";
+    }
+});
+
 Template.viewAllComment.helpers({
     getUserComment:function(userId){
         var result = users.findOne({_id:userId});
