@@ -359,7 +359,15 @@ Template.details.helpers({
         }
     },
     getComment:function(cmt){
-        return cmt.slice(0,5);
+        return cmt.slice(0,6);
+    },
+    getReview:function(id){
+        var a = review.find({dataId:id},{limit:6});
+        return a;
+
+    },
+    getdata:function(id){
+        return data.find({_id:id});
     }
 });
 
@@ -447,6 +455,16 @@ Template.perfumeDetail.helpers({
 });
 
 Template.viewAllComment.helpers({
+    getUserComment:function(userId){
+        var result = users.findOne({_id:userId});
+        return result.profile.firstname;
+    }
+});
+Template.viewAllReview.helpers({
+    getReview:function(){
+        var id = this._id;
+        return review.find({dataId:id});
+    },
     getUserComment:function(userId){
         var result = users.findOne({_id:userId});
         return result.profile.firstname;
