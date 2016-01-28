@@ -199,6 +199,22 @@ nav h1 {
   line-height:45px;
   color:#fcdb21;
 }
+.center-block{
+  position: relative;
+  width:  100px;
+  height: 100px;
+  background-position: 50% 50%;
+  background-repeat:   no-repeat;
+  background-size:     cover;
+}
+/*.img-responsive{
+  position: relative;
+  width:  100px;
+  height: 100px;
+  background-position: 50% 50%;
+  background-repeat:   no-repeat;
+  background-size:     cover;
+}*/
 
 /*.main-nav ul.nav > li:nth-child(1) > a {
   border-color:#55acee
@@ -301,5 +317,4 @@ nav.small .minilogo {
   nav.small .minilogo {
     display:none
   }
-  
 }

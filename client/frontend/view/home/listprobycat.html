@@ -1,4 +1,5 @@
 <template name="listdatabycat">
+    {{> leftside}}
     <div class="main-content">
         <div class="col-md-8">
             <div class="content">
@@ -6,7 +7,7 @@
                 {{#each getDatalist}}
                     <div class="col-md-4"> 
                         <a href="/details/{{_id}}">
-                            <img src="{{image}}" class="img-responsive center-block">
+                            <img src="{{image}}" class="img-responsive center-block" >
                         </a>
                         <h3 class="space-top">Product Name: {{product_name}}</h3>
                         <h3>Category: <b>{{getcat}}</b></h3>
