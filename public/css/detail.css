@@ -14,20 +14,18 @@
 }
 .btn_login {
     -moz-user-select: none;
-    background: #fffad9 none repeat scroll 0 0;
-    border: 0 none;
-    border-radius: 0;
-    color: #000;
+    background: #333333;
+    border: 0px none;
+    border-radius: 0px;
     cursor: pointer;
     display: inline-block;
     font-family: Georgia,"Times New Roman",Times,serif;
     font-size: 1em;
-    font-weight: 700;
-    line-height: 1.42857;
     margin-bottom: 30px;
     margin-top: 20px;
-    padding: 4px 16px;
+    padding: 3px 1px;
     text-align: center;
+    color: #fff;
 }
 .btn_login_a {
     -moz-user-select: none;
