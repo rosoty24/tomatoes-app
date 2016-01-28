@@ -63,12 +63,13 @@
 			<div class="content-a">
 			   <h1 class="margin-bottom h1-bold">PROFESSIONAL CRITICS : INCARNATA D’ANATOLE LEBRETO .......</h1>
 			<div class="row space-top-fragrand">
-			    {{#each getComment comments}}
+			    {{#each getReview _id}}
 					<div class="col-md-6">
 					<!-- show comment -->
 						<div class="show-comment"> 
-							<p class="text-comment">{{text}}</p>	
-							<p>{{date}}</p>	
+                       
+							<p class="text-comment">{{text}}</p>
+                            <p>{{date}}</p> 	
 						</div>
 						<!-- end show comment -->
 						<div style="float:left">
@@ -85,8 +86,36 @@
                 <h1 class="margin-bottom h1-bold">MORE INFOS</h1>
                 <h3 class="space-nothing">Product explication</h3>
             </div>
+            <h2 class="text-fra"><a href="/viewAllReview/{{_id}}">View All Professional Critics</a></h2>
+        </div><!--end content1-->
+        <div class="content-a">
+               <h1 class="margin-bottom h1-bold">PUSER CRITICS : INCARNATA D’ANATOLE LEBRETO...</h1>
+            <div class="row space-top-fragrand">
+                {{#each getComment comments}}
+                    <div class="col-md-6">
+                    <!-- show comment -->
+                        <div class="show-comment"> 
+                            <p class="text-comment">{{text}}</p>    
+                            <p>{{date}}</p> 
+                        </div>
+                        <!-- end show comment -->
+                        <div style="float:left">
+                            <img src="images/cycle.png" class="img-cycle responsive">
+                        </div>
+                        <div style="float:left">
+                            <p class="text-name">{{getUserComment userId}} </p>
+                            <span class="color-text"> Company</span>
+                        </div>
+                    </div> 
+                {{/each}}
+            </div>
+            <div class="content">
+                <h1 class="margin-bottom h1-bold">MORE INFOS</h1>
+                <h3 class="space-nothing">Product explication</h3>
+            </div>
             <h2 class="text-fra"><a href="/viewAllComment/{{_id}}">View All User Critics</a></h2>
-        </div><!--end content-->
+        </div><!--end content2-->
+
         <div class="content-a">
             <h1 class="margin-bottom h1-bold">RELATED</h1>
             <div class="row space-row">
