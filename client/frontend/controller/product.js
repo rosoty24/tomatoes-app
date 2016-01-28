@@ -340,6 +340,7 @@ Template.details.helpers({
     getProductRelated:function(){
         var id = this._id;
         var catId =this.category;
+        //var myLimit = limit || 5;
         return data.find({$and:[{category:catId},{_id:{$ne:id}}]});
     },
     getUserComment:function(userId){
@@ -356,6 +357,9 @@ Template.details.helpers({
         }else{
             return;
         }
+    },
+    getComment:function(cmt){
+        return cmt.slice(0,5);
     }
 });
 
@@ -396,6 +400,7 @@ Template.details.events({
         }
     }
 });
+
 
 Template.perfumeDetail.helpers({
     getIcon:function(feel){
@@ -438,5 +443,12 @@ Template.perfumeDetail.helpers({
             return "progress-bar-h";
         else if ( color == "night" )
             return "progress-bar-i";
+    }
+});
+
+Template.viewAllComment.helpers({
+    getUserComment:function(userId){
+        var result = users.findOne({_id:userId});
+        return result.profile.firstname;
     }
 });

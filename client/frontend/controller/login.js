@@ -41,7 +41,7 @@ Template.login.events({
 				console.log(error.reason);
 			} else {
 				alert("successfully");
-				Router.go('/');
+				Router.go('/admin/managesubmit');
 			}
 		});
     }
