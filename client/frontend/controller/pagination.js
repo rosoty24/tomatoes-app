@@ -37,7 +37,7 @@ Template.pagination.helpers({
 	getNumberPag:function(){
     	var arr=[];
     	//var num=Session.get('next');
-    	var num=Number(data.find().count());
+    	var num=Number(data.find({category:this._id}).count());
     	if(num<=6){
     		var perpage=1;
     	}else{
