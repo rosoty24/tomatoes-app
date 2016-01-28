@@ -14,7 +14,6 @@
                     </p>
 
             </div>
-          
             <div class="col-lg-4">
                 <div class="span7">
                     <h2>{{title}}</h2>
@@ -32,14 +31,6 @@
                 <div class="form-group">
                     <button type="button" id="submit" class="btn btn-primary">Add Review</button>
                 </div>
-                <!-- <div class="form-group">
-                    <h2>MAIN ACCORDS</h2>
-                    {{#each getPostCom}}
-                        {{#each array}}
-                        <div>{{number}}</div>
-                        {{/each}}
-                    {{/each}}
-                </div> -->
                 <div class="form-group">
                     <h2>MAIN ACCORDS</h2>
                     {{#each getAccord}}
@@ -95,7 +86,7 @@
             <h2>Comment</h2>
             <div class="col-sm-12"><br/>
                 {{#each comments}}
-                    <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="col-md-3 col-sm-6 col-xs-12">  
                         <div class="panel panel-default">
                             <div class="panel-heading">{{getUserReview userId}}
                             <p class="pull-right">{{date}}</p>
