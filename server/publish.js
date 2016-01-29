@@ -24,6 +24,9 @@ Meteor.publish('images', function (){
 Meteor.publish('favorite', function (){ 
   return favorite.find({});
 });
+Meteor.publish('score', function (){ 
+  return score.find({});
+});
 Meteor.publish('review', function (){ 
   return review.find({});
 });
