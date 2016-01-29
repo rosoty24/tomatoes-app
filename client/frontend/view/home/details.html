@@ -29,7 +29,7 @@
                                 <i class="fa fa-circle fa-2x circle-color color-green"></i> <span class="lg-span">92%</span>
                             </div>
                             <div class="space-top-fragrand"> Average Rating: 8.2/10 
-                                <br> Reviews Counted: 327 
+                                <br> Reviews Counted: {{comments.length}} 
                             </div>
                         </div>
                     </div>
@@ -42,14 +42,14 @@
 				  </div>
 			   </div>
 			   <div class="col-md-6">
-			   	<div class="h1 space-top-star">
-				   	<i value ="1" class="fa fa-star-o fa-3x circle-color color-yellow" id="star1"></i> 
-				   	<i value ="2" class="fa fa-star-o fa-3x circle-color color-yellow" id="star2"></i> 
-				   	<i value ="3" class="fa fa-star-o fa-3x circle-color color-yellow" id="star3"></i> 
-				   	<i value ="4" class="fa fa-star-o fa-3x circle-color color-yellow" id="star4"></i>
-				   	<i value ="5" class="fa fa-star-o fa-3x circle-color color-yellow" id="star5"></i> 
+			   	<div class="h1 space-top-star" id="star">
+				   	<i id="star1" value="1" class="fa fa-star-o fa-3x circle-color color-yellow"></i> 
+				   	<i id="star2" value="2" class="fa fa-star-o fa-3x circle-color color-yellow"></i> 
+				   	<i id="star3" value="3" class="fa fa-star-o fa-3x circle-color color-yellow"></i> 
+				   	<i id="star4" value="4" class="fa fa-star-o fa-3x circle-color color-yellow"></i>
+				   	<i id="star5" value="5" class="fa fa-star-o fa-3x circle-color color-yellow"></i>  
 				</div>
-			   </div>
+				</div>
 			    <div class="form-group">
 				  <textarea class="form-control-fragrand" rows="4" id="comment" placeholder="Add a review (optionnal)"></textarea>
 				</div>
@@ -61,6 +61,35 @@
 			   <h1 class="margin-bottom h1-bold">MORE INFOS</h1>
 			   <h3 class="space-nothing">Product explication</h3>
 			</div>
+			<div class="content-a">
+			   <h1 class="margin-bottom h1-bold">PROFESSIONAL CRITICS : INCARNATA D’ANATOLE LEBRETO .......</h1>
+			<div class="row space-top-fragrand">
+		
+			    {{#each review}}
+					<div class="col-md-6">
+					<!-- show comment -->
+						<div class="show-comment"> 
+                       
+							<p class="text-comment">{{quote}}</p>
+                            <p><span>{{date}}</span><span style="float:right;"><a href="{{url}}">Full Review</a></span></p> 	
+						</div>
+						<!-- end show comment -->
+						<div style="float:left">
+							<img src="/uploads/{{getprofileReview userId}}" style="width:50px; height:50px;" class="img-cycle responsive">
+						</div>
+						<div style="float:left">
+							<!-- <p class="text-name">{{getUserComment userId}} </p> -->
+							<span class="color-text"><a href="{{websiteName}}">{{websiteName}}</a></span>
+						</div>
+					</div> 
+				{{/each}}
+			</div>
+            <div class="content">
+                <h1 class="margin-bottom h1-bold">MORE INFOS</h1>
+                <h3 class="space-nothing">Product explication</h3>
+            </div>
+            <h2 class="text-fra"><a href="/viewAllReview/{{_id}}">View All Professional Critics</a></h2>
+        </div>
 			<div class="content-a">
 			   <h1 class="margin-bottom h1-bold">PROFESSIONAL CRITICS : INCARNATA D’ANATOLE LEBRETO .......</h1>
 			<div class="row space-top-fragrand">
@@ -98,14 +127,15 @@
                         <div class="show-comment"> 
                             <p class="text-comment">{{text}}</p>    
                             <p>{{date}}</p> 
-                        </div>
+                        
                         <!-- end show comment -->
-                        <div style="float:left">
-                            <img src="images/cycle.png" class="img-cycle responsive">
-                        </div>
-                        <div style="float:left">
-                            <p class="text-name">{{getUserComment userId}} </p>
-                            <span class="color-text"> Company</span>
+	                        <div style="float:left">
+	                            <img src="/uploads/{{getprofile userId}}" style="width:50px;height:50px">
+	                        </div>
+	                        <div style="float:left">
+	                            <p class="text-name">{{getUserComment userId}} </p>
+	                            <span class="color-text"> Company</span>
+	                        </div>
                         </div>
                     </div> 
                 {{/each}}

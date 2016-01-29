@@ -43,7 +43,7 @@ Template.disProduct.events({
                 }
             }); 
         }
-    },
+    }, 
     'click .unlike':function(e){
         e.preventDefault(); 
         var id=this._id;
@@ -72,7 +72,7 @@ Template.productdetails.events({
             comments:[
                 {
                      text:text, 
-                     date:date, 
+                     date:date,
                      user:Meteor.userId()
                 }
             ]    
@@ -368,7 +368,17 @@ Template.details.helpers({
     },
     getdata:function(id){
         return data.find({_id:id});
+    },
+    getprofileReview:function(userId){;
+        var getuser = Meteor.users.findOne({_id:userId});
+        var img = images.findOne({_id:getuser.profile.avatar});
+        if(img){
+            return img.copies.images.key;
+        }else{
+            return "default_avatar.jpg";
+        }
     }
+
 });
 
 Template.details.events({
@@ -394,7 +404,7 @@ Template.details.events({
              text:text, 
              date:date, 
              userId:userId,
-             score : score     
+             score:score     
         }
         alert(object);
         if(userId){
@@ -416,7 +426,9 @@ Template.details.events({
         alert("my rate:"+star);
         Session.set("SCORE",star);
     }
+
 });
+
 
 
 Template.perfumeDetail.helpers({
@@ -479,3 +491,5 @@ Template.viewAllReview.helpers({
         return result.profile.firstname;
     }
 });
+
+
