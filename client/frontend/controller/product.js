@@ -368,7 +368,17 @@ Template.details.helpers({
     },
     getdata:function(id){
         return data.find({_id:id});
+    },
+    getprofile:function(userId){;
+        var getuser = Meteor.users.findOne({_id:userId});
+        var img = images.findOne({_id:getuser.profile.avatar});
+        if(img){
+            return img.copies.images.key;
+        }else{
+            return "default_avatar.jpg";
+        }
     }
+
 });
 
 Template.details.events({
