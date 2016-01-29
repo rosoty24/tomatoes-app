@@ -369,7 +369,7 @@ Template.details.helpers({
     getdata:function(id){
         return data.find({_id:id});
     },
-    getprofile:function(userId){;
+    getprofileReview:function(userId){;
         var getuser = Meteor.users.findOne({_id:userId});
         var img = images.findOne({_id:getuser.profile.avatar});
         if(img){
