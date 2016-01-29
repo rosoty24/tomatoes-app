@@ -42,14 +42,12 @@ Template.pagination.helpers({
     		var perpage=1;
     	}else{
     		var perpage=num/6;
-
     	}
-    	
-    		for(var i=0;i<perpage;i++){
-    			arr[i]=i+1;
-    		}
-    		console.log('page:'+arr);
-    		// alert(arr);
-    		return arr;
+		for(var i=0;i<perpage;i++){
+			arr[i]=i+1;
+		}
+		console.log('page:'+arr);
+		// alert(arr);
+		return arr;
     }
 });

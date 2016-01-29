@@ -6,13 +6,13 @@ Template.data.helpers({
 });
 Template.home.helpers({
 	getData:function(){
-		return data.findOne({_id:"f0ed6244e42596f56a59945c"});
+		return data.findOne({_id:"56a5928a5c991408893df687"});
 	},
     firstImage:function(){
-        return data.findOne({_id:"a59945cf6f560ed6244e4259"});
+        return data.findOne({_id:"f0ed6244e42596f56a59945c"});
     },
     secondImage:function(){
-        return data.findOne({_id:"059945ed6244e42596f56ac"});
+        return data.findOne({_id:"56a59945cf0ed6244e42596f"});
     },
     // getData:function(){
     //     var arr=[];
@@ -72,3 +72,4 @@ Template.home.helpers({
         }
     }
 });
+
