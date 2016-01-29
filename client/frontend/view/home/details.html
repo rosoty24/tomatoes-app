@@ -29,7 +29,7 @@
                                 <i class="fa fa-circle fa-2x circle-color color-green"></i> <span class="lg-span">92%</span>
                             </div>
                             <div class="space-top-fragrand"> Average Rating: 8.2/10 
-                                <br> Reviews Counted: 327 
+                                <br> Reviews Counted: {{comments.length}} 
                             </div>
                         </div>
                     </div>
@@ -98,14 +98,15 @@
                         <div class="show-comment"> 
                             <p class="text-comment">{{text}}</p>    
                             <p>{{date}}</p> 
-                        </div>
+                        
                         <!-- end show comment -->
-                        <div style="float:left">
-                            <img src="images/cycle.png" class="img-cycle responsive">
-                        </div>
-                        <div style="float:left">
-                            <p class="text-name">{{getUserComment userId}} </p>
-                            <span class="color-text"> Company</span>
+	                        <div style="float:left">
+	                            <img src="/uploads/{{getprofile userId}}" style="width:50px;height:50px">
+	                        </div>
+	                        <div style="float:left">
+	                            <p class="text-name">{{getUserComment userId}} </p>
+	                            <span class="color-text"> Company</span>
+	                        </div>
                         </div>
                     </div> 
                 {{/each}}
