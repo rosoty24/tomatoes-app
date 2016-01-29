@@ -34,5 +34,11 @@ Meteor.methods({
   	},
   	insertNight:function(attr){
     	feeling.insert(attr);
-  	}
+  	},
+    insertStar:function(attr){
+      feeling.insert(attr);
+    },
+    insertDisStar:function(attr){
+      feeling.insert(attr);
+    }
 });

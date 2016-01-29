@@ -389,10 +389,12 @@ Template.details.events({
         var text = tlp.$('#comment').val();
         var userId = Meteor.userId();
         var type = "My type of products";
+        var score = Session.get("SCORE");
         var object={
              text:text, 
              date:date, 
-             userId:userId     
+             userId:userId,
+             score : score     
         }
         alert(object);
         if(userId){
@@ -406,6 +408,13 @@ Template.details.events({
         }else{
             alert("Please login");
         }
+    },
+    "click i.fa-star-o":function(e){
+        e.preventDefault();
+        var userId = Meteor.userId();
+        var star= $(e.currentTarget).attr("value");
+        alert("my rate:"+star);
+        Session.set("SCORE",star);
     }
 });
 
