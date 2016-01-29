@@ -397,6 +397,7 @@ Template.details.events({
         var date = dd+'/'+mm+'/'+yyyy;
         var text = tlp.$('#comment').val();
         var userId = Meteor.userId();
+        var type = "My type of products";
         var score = Session.get("SCORE");
         var object={
              text:text, 
@@ -416,7 +417,6 @@ Template.details.events({
         }else{
             alert("Please login");
         }
-
     },
     "click i.fa-star-o":function(e){
         e.preventDefault();
