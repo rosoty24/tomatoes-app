@@ -381,33 +381,31 @@ Template.details.helpers({
 });
 
 Template.details.events({
-     "click #add-comment": function(e,tlp){
+     "click #add-review": function(e,tlp){
         e.preventDefault();
-        var id = this._id;
         var today = new Date();
-        var dd = today.getDate();
-        var mm = today.getMonth()+1; 
-        var yyyy = today.getFullYear();
-        if(dd<10){
-            dd='0'+dd
-        } 
-        if(mm<10){
-            mm='0'+mm
-        } 
-        var date = dd+'/'+mm+'/'+yyyy;
-        var text = tlp.$('#comment').val();
-        var userId = Meteor.userId();
-        var type = "My type of products";
+        var date = today.getDate();
+        var text = tlp.$('#review').val();
+        var author = Meteor.userId();
+        var productId = this._id;
         var score = Session.get("SCORE");
+        var url = "";
+        var websiteName = "";
+        //alert("GEt DATA Revew "+text+" "+userId+" "+score+" "+productId);
         var object={
-             text:text, 
-             date:date, 
-             userId:userId,
-             score:score     
+                text        :text,   
+                author      :author,
+                date        :date,
+                id_product   :productId,
+                type         : "user",
+                score       :score,
+                url         : url,
+                websiteName : websiteName
         }
-        alert(object);
-        if(userId){
-            Meteor.call('updateComment',id,object,function(error){
+        //alert(object);
+        //Meteor.call('insertReview',object);
+        if(confirm('Are you sure you want to insert???') || userId){
+            Meteor.call('insertReview',object,function(error){
                 if(error){console.log("ERROR"+error.reason())}
                 else{
                     console.log("SUCCESS");

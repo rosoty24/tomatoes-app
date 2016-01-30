@@ -1,6 +1,6 @@
 Meteor.methods({
 	updateComment:function(id,object){
-		data.update({_id:id},{$addToSet:{comments:object}});
+		review.update({_id:id},{$addToSet:{reviews:object}});
 	},
 	insertSubmit: function(obj) {
   		products.insert(obj);

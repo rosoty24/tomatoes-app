@@ -5,7 +5,7 @@ Meteor.methods({
   	deleteReview: function (id) {
       return review.remove(id);
    },
-   EditReview: function(id,obj) {
-  		review.update({_id:id},{$set:obj});
-  	}
+  	updateReview:function(id,object){
+		review.update({_id:id},{$addToSet:{reviews:object}});
+	}
 });

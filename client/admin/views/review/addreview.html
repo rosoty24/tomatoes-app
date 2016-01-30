@@ -29,23 +29,33 @@
                             <thead>
                                 <tr style="background:#ddd">
                                     <th id="text-color">#</th>
-                                    <th id="text-color">Product Name</th>
-                                    <th id="text-color">Review</th>
+                                    <th id="text-color">Quote</th>
+                                    <th id="text-color">Score</th>
+                                    <th id="text-color">url</th>
+                                    <th id="text-color">author</th>
+                                    <th id="text-color">Images</th>
+                                    <th id="text-color">Website</th>
                                     <th width="25%" id="text-color">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            	{{#each getAllReview}}
+                            	{{#each getdata}}
+                                    {{#each review}}
 	                                 <tr class="odd gradeX">
 	                                    <td class="text-center">#</td>
-	                                    <td class="text-center">{{text}}</td>
-	                                    <td class="text-center">{{type}}</td>
+	                                    <td class="text-center">{{quote}}</td>
+	                                    <td class="text-center">{{score}}</td>
+                                        <td class="text-center">{{url}}</td>
+                                        <td class="text-center">{{author}}</td>
+                                        <td class="text-center">{{image}}</td>
+                                        <td class="text-center">{{websiteName}}</td>
 	                                    <td class="text-center">
 	                                        <a href="#" class="btn btn-primary btn-xs">View</a>
 	                                        <a href="#" id="remove" class="btn btn-danger btn-xs">Delete</a>
-	                                        <a href="/admin/updateReview/{{_id}}" id="edituser" class="btn btn-primary btn-xs">Edit</a>
+	                                        <a href="/admin/updateReview/{{../_id}}" id="edituser" class="btn btn-primary btn-xs">Edit</a>
 	                                    </td>
 	                                </tr>
+                                    {{/each}}
 	                            {{/each}}
                             </tbody>
                         </table>

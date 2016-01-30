@@ -46,17 +46,23 @@ Template.addreview.helpers({
 	},
 	getProduct:function(){
 		return products.find({});
+	},
+	getdata:function(){
+		return data.find({});
 	}
 });
 Template.updateReview.events({
 	"click #update":function(e,tlp){
 		e.preventDefault();
+		alert("helo")
 		var id = this._id;
-		var text = tlp.$('#text').val();
-		var productiId= tlp.$('#products').val();
-		var userId = Meteor.userId();
-		var date = new Date();
-		var type = "Products Type";
+		var quote = tlp.$('#quote').val();
+		var score= tlp.$('#score').val();
+		var url = "url";
+		var author = tlp.$('#author').val();
+		var img = Session.get('ADDIMAGEID');
+		var websiteName= tlp.$('#websiteName').val();
+		var url = "url";
 		alert('Can Get :'+text+productiId+userId);
 		var obj={
 			text:text,
@@ -67,7 +73,15 @@ Template.updateReview.events({
 		}
 		Meteor.call("EditReview",id,obj);
 		Router.go('/admin/addreview')
-	}
+	},
+	'change #image': function(event, template) {
+        var files = event.target.files;
+        for (var i = 0, ln = files.length; i < ln; i++) {
+          	images.insert(files[i], function (err, fileObj) {
+            	Session.set('ADDIMAGEID', fileObj._id);
+          	});
+        }
+    }
 });
 Template.updateReview.helpers({
 	getProduct:function(){

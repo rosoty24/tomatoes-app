@@ -6,15 +6,28 @@
 				<div class="row">
 					<form role="form">
                         <div class="form-group">
-                            <label>Add Select</label>
-                            <select class="form-control" required>
-	                           	{{#each getProduct}}
-									<option value="{{_id}}" id="products">{{title}}</option>
-								{{/each}}
-							</select>
+                        	<div>Updata Quote</div>
+                        	<input type="text" id="quote" class="form-control input-sm" placeholder="Quote..." required value="{{quote}}">
                         </div>
                         <div class="form-group">
-                            <textarea ame="text" value="{{text}}" id="text" class="form-control input-sm" placeholder="Text" required rows="5"></textarea>
+                        	<div>Updata Score</div>
+                        	<input type="text" id="score" value="{{score}}" class="form-control input-sm" placeholder="Score..." required>
+                        </div>
+                        <div class="form-group">
+                        	<div>Updata URL</div>
+                        	<input type="text" id="url" value="{{url}}" class="form-control input-sm" placeholder="URL..." required>
+                        </div>
+                        <div class="form-group">
+                        	<div>Updata Author</div>
+                        	<input type="text" id="author" value="{{author}}" class="form-control input-sm" placeholder="Author Name..." required>
+                        </div>
+                        <div class="form-group">
+                        	<div>Updata Image</div>
+                        	<input type="file" id="image" value="{{image}}" class="form-control input-sm" placeholder="image..." required>
+                        </div>
+                        <div class="form-group">
+                        	<div>Updata Web Site</div>
+                        	<input type="text" id="websiteName" value="{{websiteName}}" class="form-control input-sm" placeholder="Web Site Name..." required>
                         </div>
                         <div class="row pull-right">
                             <button type="submit" id="update" class="btn btn-primary">Update Data</button>
